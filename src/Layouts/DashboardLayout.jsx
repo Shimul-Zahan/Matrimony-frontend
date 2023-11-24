@@ -13,7 +13,7 @@ import './dashboard.css'
 
 const DashboardLayout = () => {
 
-    const isAdmin = true;
+    const isAdmin = false;
     const { logOut, user } = useContext(MyAuthContext);
     const handleLogOut = () => {
         logOut()
@@ -23,8 +23,8 @@ const DashboardLayout = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className='flex justify-start'>
-                <div className="flex h-screen w-96 flex-col justify-between border-e">
+            <div className='flex justify-start flex-col md:flex-row'>
+                <div className="flex w-full md:h-screen lg:min-h-screen md:w-72 lg:w-96 flex-col justify-between border-e">
                     <div className="px-4 py-6">
                         <span
                             className="grid py-3 w-full text-start px-5 rounded-lg bg-gray-100 text-xl text-gray-600"
