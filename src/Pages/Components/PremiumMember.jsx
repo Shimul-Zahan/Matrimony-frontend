@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
+import TitleBar from '../../Utils/TitleBar';
 
 
 const PremiumMember = () => {
@@ -17,6 +18,7 @@ const PremiumMember = () => {
 
     return (
         <Box sx={{ width: '100%', mt: 4 }}>
+            <TitleBar title={'Premium Section'} subTitle={'Here Our Some Premium Members'} />
             <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {
                     datas?.slice(0, 6).map((data, index) => 
