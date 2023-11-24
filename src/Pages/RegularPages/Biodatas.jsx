@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
+import TitleBar from '../../Utils/TitleBar';
 
 
 
@@ -17,7 +18,8 @@ const Biodatas = () => {
   }, [])
 
   return (
-    <Container maxWidth='xl' sx={{mt: 16}}>
+    <Container maxWidth='xl' sx={{ mt: 16 }}>
+      <TitleBar title={'ALL BIODATAS'} subTitle={'All Users Biodata Here'}/>
       <Box container sx={{ width: '100%' }}>
         <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {
