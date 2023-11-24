@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { MdHome } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
@@ -13,7 +13,7 @@ import './dashboard.css'
 
 const DashboardLayout = () => {
 
-    const isAdmin = false;
+    const isAdmin = true;
     const { logOut, user } = useContext(MyAuthContext);
     const handleLogOut = () => {
         logOut()
@@ -23,96 +23,157 @@ const DashboardLayout = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className='flex flex-col md:flex-row justify-start gap-10'>
-                <div className='w-96 bg-[#1976D2] h-screen pb-20'>
-                    <ul className='list-none text-lg font-semibold text-gray-800'>
-                        <div className='py-10 px-6'>
-                            <h1 className='text-2xl font-bold'>MOMENTS</h1>
-                            <h1 className='text-xl font-thin tracking-widest'>MATRIMONY</h1>
-                        </div>
+            <div className='flex justify-start'>
+                <div className="flex h-screen w-96 flex-col justify-between border-e">
+                    <div className="px-4 py-6">
+                        <span
+                            className="grid py-3 w-full text-start px-5 rounded-lg bg-gray-100 text-xl text-gray-600"
+                        >
+                            <span className='text-[#1976D2] font-bold text-2xl'>MEMORY</span>Metromony BD
+                        </span>
+
                         {
-                            isAdmin ? <>
-                                {/* for admin */}
-                                <li className='py-4 px-6'>
-                                    <NavLink to='/dashboard/admin-dashboard' className="flex items-center gap-2">
-                                        <span className='text-2xl'><MdHome /></span>
-                                        <h1 className='uppercase'>Admin Dashboard</h1>
-                                    </NavLink>
-                                </li>
-                                <li className='py-4 px-6'>
-                                    <NavLink to='/dashboard/manage-users' className="flex items-center gap-2">
-                                        <span className='text-2xl'><MdManageAccounts /></span>
-                                        <h1 className='uppercase'>Manage Users</h1>
-                                    </NavLink>
-                                </li>
-                                <li className='py-4 px-6'>
-                                    <NavLink to='/dashboard/approved-premium' className="flex items-center gap-2">
-                                        <span className='text-2xl'><FcApproval /></span>
-                                        <h1 className='uppercase'>Approved Premium</h1>
-                                    </NavLink>
-                                </li>
-                                <li className='py-4 px-6'>
-                                    <NavLink to='/dashboard/approve-contact-request' className="flex items-center gap-2">
-                                        <span className='text-2xl'><CiSquareQuestion /></span>
-                                        <h1 className='uppercase'>Approved Contact Request</h1>
-                                    </NavLink>
-                                </li>
-                                <li className='py-4 px-6'>
-                                    <button onClick={handleLogOut} className='border-2 py-2 px-4 flex items-center gap-3 bg-yellow-500 rounded-sm'>
-                                        <span className='text-2xl'><MdOutlineLogout /></span>
-                                        <h1>Logout</h1>
-                                    </button>
-                                </li>
-                            </> :
-                                <>
-                                    {/* for user */}
-                                    <li className='py-4 px-6'>
-                                        <NavLink to='/dashboard/edit-biodata' className="flex items-center gap-2">
-                                            <span className='text-2xl'><FaEdit /></span>
-                                            <h1 className='uppercase'>Edit Biodata</h1>
+                            isAdmin ? 
+                                <ul className="mt-6 space-y-4">
+                                    <li>
+                                        <NavLink to='/dashboard/admin-dashboard' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <MdHome />
+                                                </span>
+                                                <h1 className='uppercase'>Admin Dashboard</h1>
+                                            </div>
                                         </NavLink>
                                     </li>
-                                    <li className='py-4 px-6'>
-                                        <NavLink to='/dashboard/view-biodata' className="flex items-center gap-2">
-                                            <span className='text-2xl'><TbListDetails /></span>
-                                            <h1 className='uppercase'>View Biodata</h1>
+
+                                    <li>
+                                        <NavLink to='/dashboard/manage-users' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <MdManageAccounts />
+                                                </span>
+                                                <h1 className='uppercase'>Manage Users</h1>
+                                            </div>
                                         </NavLink>
                                     </li>
-                                    <li className='py-4 px-6'>
-                                        <NavLink to='/dashboard/my-contact-request' className="flex items-center gap-2">
-                                            <span className='text-2xl'><CiSquareQuestion /></span>
-                                            <h1 className='uppercase'>My Contact Request</h1>
+
+                                    <li>
+                                        <NavLink to='/dashboard/approved-premium' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <FcApproval />
+                                                </span>
+                                                <h1 className='uppercase'>Approved Premium</h1>
+                                            </div>
                                         </NavLink>
                                     </li>
-                                    <li className='py-4 px-6'>
-                                        <NavLink to='/dashboard/favourites-biodata' className="flex items-center gap-2">
-                                            <span className='text-2xl'><RiDislikeLine /></span>
-                                            <h1 className='uppercase'>Favourites Biodata</h1>
+
+                                    <li>
+                                        <NavLink to='/dashboard/approve-contact-request' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <CiSquareQuestion />
+                                                </span>
+                                                <h1 className='uppercase'>Approved Contact Request</h1>
+                                            </div>
                                         </NavLink>
                                     </li>
-                                    <li className='py-4 px-6'>
-                                        <button onClick={handleLogOut} className='border-2 py-2 px-4 flex items-center gap-3 bg-yellow-500 rounded-sm'>
-                                            <span className='text-2xl'><MdOutlineLogout /></span>
+
+                                    <Link className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 ">
+                                        <button onClick={handleLogOut}
+                                            className='border-2 py-2 px-4 flex items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>
+                                            <span className='text-2xl'>
+                                                <MdOutlineLogout />
+                                            </span>
                                             <h1>Logout</h1>
                                         </button>
+                                    </Link>
+                                </ul> :
+                                <ul className="mt-6 space-y-4">
+                                    <li>
+                                        <NavLink to='/dashboard/edit-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <FaEdit />
+                                                </span>
+                                                <h1 className='uppercase'>Edit Biodata</h1>
+                                            </div>
+                                        </NavLink>
                                     </li>
-                                </>
-                        }
 
-                        <hr className='bg-white my-6 mx-6' />
-                        {/* shared components */}
-                        <li className='py-4 px-6'>
-                            <NavLink to='/' className="flex items-center gap-2">
-                                <span className='text-2xl'><MdHome /></span>
-                                <h1>HOME</h1>
-                            </NavLink>
-                        </li>
-                        <li className='py-4 px-6'>
-                            <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full' />
-                        </li>
-                    </ul>
+                                    <li>
+                                        <NavLink to='/dashboard/view-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <TbListDetails />
+                                                </span>
+                                                <h1 className='uppercase'>View Biodata</h1>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink to='/dashboard/my-contact-request' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <CiSquareQuestion />
+                                                </span>
+                                                <h1 className='uppercase'>My Contact Request</h1>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink to='/dashboard/favourites-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <RiDislikeLine />
+                                                </span>
+                                                <h1 className='uppercase'>Favourites Biodata</h1>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+
+                                    <Link className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 ">
+                                        <button onClick={handleLogOut}
+                                            className='border-2 py-2 px-4 flex items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>
+                                            <span className='text-2xl'>
+                                                <MdOutlineLogout />
+                                            </span>
+                                            <h1>Logout</h1>
+                                        </button>
+                                    </Link>
+                                </ul>
+                        }
+                    </div>
+
+                    <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 space-y-4">
+                        <NavLink to='/' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                            <div className='flex justify-normal items-center gap-2'>
+                                <span className='text-2xl'>
+                                    <MdManageAccounts />
+                                </span>
+                                <h1 className='uppercase'>Home</h1>
+                            </div>
+                        </NavLink>
+                        <div className="flex items-center gap-2 bg-gray-100 p-4 hover:bg-gray-50">
+                            <img
+                                alt="Man"
+                                src={user?.photoURL}
+                                className="h-10 w-10 rounded-full object-cover"
+                            />
+
+                            <div>
+                                <p className="text-xs">
+                                    <strong className="block font-medium">{user?.displayName}</strong>
+
+                                    <span> {user?.email} </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className='flex-1 bg-red-500 w-full h-screen'>
+                <div className='flex-1'>
                     <Outlet />
                 </div>
             </div>

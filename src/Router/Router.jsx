@@ -11,6 +11,14 @@ import Registration from '../Pages/RegularPages/Registration';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import Contact from '../Pages/Contact/Contact';
 import About from '../Pages/RegularPages/About';
+import EditBio from '../Pages/DashboardPages/User/EditBio';
+import ViewBio from '../Pages/DashboardPages/User/ViewBio';
+import ContactRequest from '../Pages/DashboardPages/User/ContactRequest';
+import FavouriteBiodata from '../Pages/DashboardPages/User/FavouriteBiodata';
+import AdminPage from '../Pages/DashboardPages/Admin/AdminPage'
+import ApprovePremium from '../Pages/DashboardPages/Admin/ApprovePremium'
+import ContactRequestA from '../Pages/DashboardPages/Admin/ContactRequestA'
+import ManageUsers from '../Pages/DashboardPages/Admin/ManageUsers'
 
 const router = createBrowserRouter([
     {
@@ -51,36 +59,36 @@ const router = createBrowserRouter([
         // user route
             {
                 path: 'edit-biodata',
-                element: <h1>Edit Biodata</h1>
+                element: <EditBio />
             },
             {
                 path: 'view-biodata',
-                element: <h1>View Biodata</h1>
+                element: <ViewBio />
             },
             {
                 path: 'my-contact-request',
-                element: <h1>My Contact Request</h1>
+                element: <ContactRequest />
             },
             {
                 path: 'favourites-biodata',
-                element: <h1>Favourites Biodata</h1>
+                element: <FavouriteBiodata />
             },
             // admin route
             {
                 path: 'admin-dashboard',
-                element: <h1>Admin Dashboard</h1>
+                element: <AdminPage />
             },
             {
                 path: 'manage-users',
-                element: <h1>Manage Users</h1>
+                element: <ManageUsers />
             },
             {
                 path: 'approved-premium',
-                element: <h1>Approved Premium</h1>
+                element: <ApprovePremium />
             },
             {
                 path: 'approve-contact-request',
-                element: <h1>Approved Contact Request</h1>
+                element: <ContactRequestA />
             },
         ]
     }
