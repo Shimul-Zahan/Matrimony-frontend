@@ -18,7 +18,7 @@ const Biodatas = () => {
   }, [])
 
   return (
-    <Container maxWidth='xl' sx={{ mt: 16 }}>
+    <Container maxWidth='xl' sx={{ mt: 16, mb: 16 }}>
       <TitleBar title={'ALL BIODATAS'} subTitle={'All Users Biodata Here'}/>
       <Box container sx={{ width: '100%' }}>
         <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

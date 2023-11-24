@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 
 const HowItWorks = () => {
     return (
-        <div>
+        <div className='mb-10'>
             <TitleBar title={'TIPS SECTION'} subTitle={'Here are Some Tips About How Our Site Works'} />
             <Timeline position="alternate">
                 <TimelineItem>

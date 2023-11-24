@@ -9,6 +9,7 @@ import Biodatas from '../Pages/RegularPages/Biodatas';
 import Login from '../Pages/RegularPages/Login';
 import Registration from '../Pages/RegularPages/Registration';
 import DashboardLayout from '../Layouts/DashboardLayout';
+import Contact from '../Pages/Contact/Contact';
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/contact-us',
-                element: <h1>Contact Us</h1>
+                element: <Contact />
             },
             {
                 path: '/signin',
