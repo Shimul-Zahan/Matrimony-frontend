@@ -40,6 +40,7 @@ const EditBio = () => {
                 fathersName: data.fathersName || 'null',
                 age: parseInt(data.age) || 'null',
                 permanentDivision: data.permanentDivision || 'null',
+                presentDivision: data.presentDivision || 'null',
                 expectedPartnerAge: parseInt(data.expectedPartnerAge) || 'null',
                 mothersName: data.mothersName || 'null',
                 expectedPartnerHeight: data.expectedPartnerHeight || 'null',
@@ -230,6 +231,24 @@ const EditBio = () => {
                                 type="text"
                                 className="mt-1 p-2 w-full border rounded"
                             />
+                        </div>
+                        <div className="mb-6 w-full">
+                            <label className="block text-base font-medium text-gray-700">
+                                Present Division name<span className='text-red-600'>*</span>
+                            </label>
+                            <select
+                                {...register('presentDivision', { required: true })}
+                                className="mt-1 p-2 w-full border rounded"
+                            >
+                                <option value="rajshahi">Rajshahi</option>
+                                <option value="dhaka">Dhaka</option>
+                                <option value="chattagram">Chattagram</option>
+                                <option value="rangpur">Rangpur</option>
+                                <option value="barisal">Barisal</option>
+                                <option value="khulna">Khulna</option>
+                                <option value="maymansign">Maymansign</option>
+                                <option value="sylhet">Sylhet</option>
+                            </select>
                         </div>
                     </div>
                     

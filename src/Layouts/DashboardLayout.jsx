@@ -156,7 +156,7 @@ const DashboardLayout = () => {
                                 <h1 className='uppercase'>Home</h1>
                             </div>
                         </NavLink>
-                        <div className="flex items-center gap-2 bg-gray-100 p-4 hover:bg-gray-50">
+                        <div className="md:flex items-center gap-2 hidden bg-gray-100 p-4 hover:bg-gray-50">
                             <img
                                 alt="Man"
                                 src={user?.photoURL}
