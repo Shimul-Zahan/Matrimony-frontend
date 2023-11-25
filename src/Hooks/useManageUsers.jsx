@@ -4,7 +4,7 @@ import usePublicAxios from './usePublicAxios'
 const axioPublicInstance = usePublicAxios();
 
 const userDataPost = (userInfo) => {
-    return axioPublicInstance.post('/manage-users', userInfo);
+    return axioPublicInstance.post('/users', userInfo);
 }
 
 const useManageUsers = () => {

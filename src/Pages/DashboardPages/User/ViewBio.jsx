@@ -11,8 +11,9 @@ const ViewBio = () => {
     console.log(data)
 
     const requestedData = {
-        oldId: data?._id,
-        ...data
+        biodataId: data?.biodataId,
+        name: data?.name,
+        email: data?.userEmail
     }
 
     if (isLoading) {
