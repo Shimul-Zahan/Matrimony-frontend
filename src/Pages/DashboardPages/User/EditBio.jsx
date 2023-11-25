@@ -18,7 +18,7 @@ const EditBio = () => {
     const axiosSecureInstance = useAxiosSecure();
     const navigate = useNavigate()
     const { user } = useContext(MyAuthContext);
-    
+
 
     const onSubmit = async (data) => {
 
@@ -76,7 +76,7 @@ const EditBio = () => {
         <div className='pb-10'>
             <TitleBar title={'EDIT BIODATA'} />
             <div className="px-10 py-5 bg-gray-100 max-w-[990px] mx-auto">
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">   
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
                     <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
@@ -208,7 +208,7 @@ const EditBio = () => {
                                 <option value="white">White</option>
                                 <option value="middle">Middle</option>
                             </select>
-                        </div>  
+                        </div>
                     </div>
 
                     <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
@@ -251,7 +251,7 @@ const EditBio = () => {
                             </select>
                         </div>
                     </div>
-                    
+
                     <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
