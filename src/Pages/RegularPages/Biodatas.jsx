@@ -4,18 +4,17 @@ import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
 import TitleBar from '../../Utils/TitleBar';
+import useAllBiodatas from '../../Hooks/useAllBiodatas';
 
 
 
 const Biodatas = () => {
 
-  const [datas, setDatas] = useState([]);
+  const { data, refetch, isLoading } = useAllBiodatas();
 
-  useEffect(() => {
-    fetch('./users.json')
-      .then(res => res.json())
-      .then(data => setDatas(data));
-  }, [])
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <Container maxWidth='xl' sx={{ mt: 16, mb: 16 }}>
@@ -23,7 +22,7 @@ const Biodatas = () => {
       <Box container sx={{ width: '100%' }}>
         <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {
-            datas?.map((data, index) =>
+            data?.map((user, index) =>
               <Grid key={index} item xs={12} sm={12} md={6} lg={3}
                 style={{
                   display: 'flex',

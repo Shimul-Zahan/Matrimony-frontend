@@ -9,6 +9,8 @@ const ApprovePremium = () => {
   const { data, refetch, isLoading } = usePremiumRequest();
   const axiosSecureInstance = useAxiosSecure();
 
+  console.log(data?.premiumRequestStatus)
+
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -23,7 +25,6 @@ const ApprovePremium = () => {
       });
       refetch();
     }
-    // console.log(id)
   }
 
 
@@ -45,6 +46,9 @@ const ApprovePremium = () => {
                   Email
                 </th>
                 <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
+                  Staus
+                </th>
+                <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
                   Action
                 </th>
                 <th className="px-4 py-2"></th>
@@ -60,11 +64,24 @@ const ApprovePremium = () => {
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user?.name}</td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user?.email}</td>
-                    <td className="whitespace-nowrap px-4 py-2">
-                      <button onClick={() => handleApprovePremium(user?.biodataId)} className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                        Make Premium
-                      </button>
-                    </td>
+                    {
+                      user?.premiumRequestStatus === "approved" ?
+                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">Premium</td> :
+                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">Pending</td>
+                    }
+                    {
+                      user?.premiumRequestStatus === 'approved' ?
+                        <td className="whitespace-nowrap px-4 py-2">
+                          <button disabled className="inline-block rounded bg-indigo-100 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-100">
+                            Approved
+                          </button>
+                        </td>:
+                        <td className="whitespace-nowrap px-4 py-2">
+                          <button onClick={() => handleApprovePremium(user?.biodataId)} className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                            Approve
+                          </button>
+                        </td> 
+                    } 
                   </tr>
                 )
               }

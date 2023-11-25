@@ -19,6 +19,7 @@ import AdminPage from '../Pages/DashboardPages/Admin/AdminPage'
 import ApprovePremium from '../Pages/DashboardPages/Admin/ApprovePremium'
 import ContactRequestA from '../Pages/DashboardPages/Admin/ContactRequestA'
 import ManageUsers from '../Pages/DashboardPages/Admin/ManageUsers'
+import ViewDetails from '../Pages/RegularPages/ViewDetails';
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
             {
                 path: '/biodata',
                 element: <Biodatas />
+            },
+            {
+                path: 'viewDetails/:id',
+                element: <ViewDetails />,
+                // loader: async () => await fetch(`http://localhost:5000/user/${id}`)
             },
             {
                 path: '/about-us',
