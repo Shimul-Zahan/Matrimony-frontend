@@ -73,11 +73,11 @@ const EditBio = () => {
     }
 
     return (
-        <div>
+        <div className='pb-10'>
             <TitleBar title={'EDIT BIODATA'} />
             <div className="px-10 py-5 bg-gray-100 max-w-[990px] mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">   
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Name<span className='text-red-600'>*</span>
@@ -113,7 +113,7 @@ const EditBio = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Height<span className='text-red-600'>*</span>
@@ -165,7 +165,7 @@ const EditBio = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Age
@@ -211,7 +211,7 @@ const EditBio = () => {
                         </div>  
                     </div>
 
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Fathers name
@@ -252,7 +252,7 @@ const EditBio = () => {
                         </div>
                     </div>
                     
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Expected Partner Age
@@ -297,7 +297,7 @@ const EditBio = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col md:flex-row justify-start items-center gap-5'>
+                    <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
                                 Contact Email (User Email Readonly)
@@ -335,7 +335,7 @@ const EditBio = () => {
                     <div>
                         <button
                             type="submit"
-                            className="bg-yellow-800 w-full text-white py-2 px-4 rounded-full"
+                            className="bg-indigo-500 w-full text-white py-2 px-4 rounded-full"
                         >
                             Save And Publish Now Button
                         </button>
