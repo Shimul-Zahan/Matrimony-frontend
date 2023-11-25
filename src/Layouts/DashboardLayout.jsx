@@ -173,7 +173,7 @@ const DashboardLayout = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex-1 md:ml-96'>
+                <div className='flex-1 lg:ml-96 md:ml-72'>
                     <Outlet />
                 </div>
             </div>
