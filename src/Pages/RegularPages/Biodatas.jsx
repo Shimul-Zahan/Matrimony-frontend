@@ -5,6 +5,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Container, Typograph
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
 import TitleBar from '../../Utils/TitleBar';
 import useAllBiodatas from '../../Hooks/useAllBiodatas';
+import { Link } from 'react-router-dom';
 
 
 
@@ -32,22 +33,41 @@ const Biodatas = () => {
               >
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
-                    sx={{ height: 240 }}
-                    image={img}
+                    sx={{ height: 240, width: 400 }}
+                    image={user?.image}
                     title="green iguana"
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Lizard
+                    <Typography gutterBottom variant="h6" component="div">
+                      Biodata ID: {user?.biodataId}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species, ranging across all continents except Antarctica
+                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                      Occupation: {user?.occupation}
+                    </Typography>
+                    <Grid style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      textTransform: 'capitalize'
+                    }}>
+                      <Typography gutterBottom variant="body6" component="div" >
+                        Biodata Type: {user?.biodataType}
+                      </Typography>
+                      <Typography gutterBottom variant="body6" component="div">
+                        Age: {user?.age}
+                      </Typography>
+                    </Grid>
+                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                      Permanent Division: {user?.permanentDivision}
+                    </Typography>
+                    <Typography variant="body6" color="text.secondary">
+
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
+                    <Link to={`/viewDetails/${user?._id}`}>
+                      <Button sx={{ backgroundColor: '#1976D2', color: '#000' }} size="lg">View Profile</Button>
+                    </Link>
                   </CardActions>
                 </Card>
               </Grid>
