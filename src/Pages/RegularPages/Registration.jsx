@@ -5,6 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import bg from '../../assets/slider-resources/couple-newlyweds-hugging.jpg'
 import { MyAuthContext } from '../../Context/AuthContext';
 import { updateProfile } from 'firebase/auth'
+import usePublicAxios from '../../Hooks/usePublicAxios';
+import useManageUsers from '../../Hooks/useManageUsers';
+import Swal from 'sweetalert2';
 // import { Helmet } from 'react-helmet'
 
 
@@ -13,6 +16,8 @@ const Registration = () => {
     const { emailCreateUser, googleLogin } = useContext(MyAuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
+    const axioPublicInstance = usePublicAxios();
+    const userDataPost = useManageUsers();
 
     const handleRegi = e => {
         e.preventDefault();
@@ -28,8 +33,29 @@ const Registration = () => {
                 updateProfile(user, {
                     displayName: name,
                     photoURL: image
+                }).then(res => {
+                    // navigate('/');
+                    const userInfo = {
+                        name: user?.displayName,
+                        email: user?.email
+                    }
+                    userDataPost(userInfo)
+                        .then(res => {
+                            // console.log(res.data)
+                            if (res.data.insertedId) {
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Registration Successfull",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/');
+                            }
+                        })
+                }).catch(err => {
+                    console.log(error)
                 })
-                navigate('/');
             })
             .catch(err => setError(err.message.slice(10, 100)))
 
@@ -38,7 +64,33 @@ const Registration = () => {
     const googleSignIn = () => {
         googleLogin()
             .then(res => {
-                navigate('/');
+                console.log(res.user)
+                const userInfo = {
+                    name: res.user?.displayName,
+                    email: res.user?.email
+                }
+                console.log(userInfo)
+                // userDataPost(userInfo)
+                //     .then(res => {
+                //         if (res.data.insertedId) {
+                //             Swal.fire({
+                //                 position: "top-end",
+                //                 icon: "success",
+                //                 title: "Registration Successfull",
+                //                 showConfirmButton: false,
+                //                 timer: 1500
+                //             });
+                //             navigate('/');
+                //         }
+                //     })
+                // Swal.fire({
+                //     position: "top-end",
+                //     icon: "success",
+                //     title: "Registration Successfull",
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // });
+                // navigate('/');
             })
             .catch(err => setError(err.message.slice(10, 100)))
     }

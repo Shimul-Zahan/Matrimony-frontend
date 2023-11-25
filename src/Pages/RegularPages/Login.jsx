@@ -4,13 +4,14 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import bg from '../../assets/slider-resources/5737962.jpg'
 import { MyAuthContext } from '../../Context/AuthContext'
-// import { Helmet } from 'react-helmet'
-// import axios from 'axios'
+import Swal from 'sweetalert2'
+import useManageUsers from '../../Hooks/useManageUsers'
 
 const Login = () => {
 
     const { emailLogin, googleLogin } = useContext(MyAuthContext)
     const [error, setError] = useState('');
+    const userDataPost = useManageUsers();
     const navigate = useNavigate();
 
     const handleLogin = e => {
@@ -21,9 +22,14 @@ const Login = () => {
         
         emailLogin(email, password)
             .then(res => {
-                const user = res.user;
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 navigate('/');
-                // console.log(user);
             })
             .catch(err => setError(err.message.slice(10, 100)))
 
@@ -31,7 +37,34 @@ const Login = () => {
 
     const googleSignIn = () => {
         googleLogin()
-            .then(res => navigate('/'))
+            .then(res => {
+                const userInfo = {
+                    name: res.user?.displayName,
+                    email: res.user?.email
+                }
+                userDataPost(userInfo)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Login Successfull",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/');
+            })
             .catch(err => setError(err.message.slice(10, 100)))
     }
 
