@@ -13,8 +13,10 @@ const CheekoutPage = () => {
 
     const { id } = useParams();
     const { user } = useContext(MyAuthContext);
-    const { data, refetch } = useAllBiodatas();
-    const myID = data?.find(man => man?.userEmail == user?.email)?.biodataId;
+    const { data, refetch, isLoading } = useAllBiodatas();
+    const myID = data?.find(man => man?.userEmail === user?.email)?.biodataId;
+    const needer = data?.find(user => user?.biodataId == id);
+    console.log(needer, "neederid")
 
     const stripe = useStripe();
     const elements = useElements();
@@ -83,10 +85,14 @@ const CheekoutPage = () => {
                 requesterID: myID,
                 neededID: id,
                 requesterEmail: user?.email,
+                name: needer?.name,
+                requesterName: user?.displayName,
                 status: 'pending',
                 time: new Date().toLocaleDateString(),
                 trxnID: paymentIntent?.id,
-                paidTk: parseInt(500)
+                paidTk: parseInt(500),
+                neederEmai: needer?.contactEmail,
+                neederMobile: needer?.mobileNumber,
             }
 
             const res = await axiosSecureInstance.post('/payments', requestContactData)
