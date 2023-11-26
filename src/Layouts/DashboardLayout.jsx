@@ -13,7 +13,7 @@ import './dashboard.css'
 
 const DashboardLayout = () => {
 
-    const isAdmin = true;
+    const isAdmin = false;
     const { logOut, user } = useContext(MyAuthContext);
     const handleLogOut = () => {
         logOut()
