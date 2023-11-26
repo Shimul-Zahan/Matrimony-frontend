@@ -25,8 +25,6 @@ const ViewDetails = () => {
     const recommendedDetails = data.filter(user => user.biodataType === detailsData.biodataType && user._id !== id)
     const premiumMember = data.find(member => member.userEmail === user?.email && member.accountType === 'premium');
     const axioPublicInstance = usePublicAxios();
-    // console.log(premiumMember)
-    // console.log(recommendedDetails)
 
     const addToFavourite = async () => {
         const favouriteData = {
@@ -163,13 +161,13 @@ const ViewDetails = () => {
                                         <div
                                             className="grid grid-cols-1 gap-1 py-2 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
                                         >
-                                            <dt className="font-medium text-gray-900">Exp Partner Hei.t</dt>
+                                            <dt className="font-medium text-gray-900">Exp Partner Hei</dt>
                                             <dd className="text-gray-700 sm:col-span-2">{detailsData?.expectedPartnerHeight}</dd>
                                         </div>
                                         <div
                                             className="grid grid-cols-1 gap-1 py-2 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
                                         >
-                                            <dt className="font-medium text-gray-900">Exp Partner Wei.</dt>
+                                            <dt className="font-medium text-gray-900">Exp Partner Wei</dt>
                                             <dd className="text-gray-700 sm:col-span-2">{detailsData?.expectedPartnerWeight}</dd>
                                         </div>
                                     </dl>

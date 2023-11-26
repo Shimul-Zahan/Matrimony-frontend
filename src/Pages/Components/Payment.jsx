@@ -1,13 +1,22 @@
-import { loadStripe } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheekoutPage from "../RegularPages/CheekoutPage";
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
-const App = () => {
+const stripePromise = loadStripe(import.meta.env.VITE_STRPE_KEY);
+console.log(stripePromise)
+
+const Payment = () => {
+
     return (
-        <Elements stripe={stripePromise}>
-            <CheckoutForm />
-        </Elements>
+        <div>
+            <div>
+                <Elements stripe={stripePromise}>
+                    <CheekoutPage />
+                </Elements>
+            </div>
+        </div>
     );
 };
 
-export default App;
+export default Payment;

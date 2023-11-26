@@ -66,7 +66,6 @@ const EditBio = () => {
                     text: `${res.data.message}`,
                 });
                 reset();
-                // console.log()
             }
 
         }

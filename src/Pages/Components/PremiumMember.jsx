@@ -15,7 +15,7 @@ const PremiumMember = () => {
         return <div>Loading....</div>
     }
 
-    const premiumAccount = data.filter(user => user.accountType === 'premium')
+    const premiumAccount = data?.filter(user => user.accountType === 'premium')
 
 
     return (

@@ -20,7 +20,7 @@ import ApprovePremium from '../Pages/DashboardPages/Admin/ApprovePremium'
 import ContactRequestA from '../Pages/DashboardPages/Admin/ContactRequestA'
 import ManageUsers from '../Pages/DashboardPages/Admin/ManageUsers'
 import ViewDetails from '../Pages/RegularPages/ViewDetails';
-import CheekoutPage from '../Pages/RegularPages/CheekoutPage';
+import Payment from '../Pages/Components/Payment';
 
 const router = createBrowserRouter([
     {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'cheekout/:id',
-                element: <CheekoutPage />,
+                element: <Payment />,
             },
             {
                 path: '/about-us',
