@@ -60,6 +60,7 @@ const AllBiodatas = () => {
             <div className="container mx-auto grid grid-cols-1 gap-4 lg:grid-cols-[300px_1fr] lg:gap-8">
                 <div className="space-y-2 px-5">
                     <div className='w-full lg:px-0'>
+                        <h1 className='text-base text-indigo-700'>Filter by Biodata Type</h1>
                         <select onChange={handleGenderFilter}
                             className="mt-1.5 w-full text-lg px-2 py-3 rounded-lg border-black border-2 text-gray-700 sm:text-sm"
                         >
@@ -69,10 +70,10 @@ const AllBiodatas = () => {
                         </select>
                     </div>
                     <div className='w-full text-lg lg:px-0'>
+                        <h1 className='text-base text-indigo-700'>Filter by division</h1>
                         <select onChange={handleDivisionFilter}
                             className="mt-1.5 w-full px-2 py-3 rounded-lg border-black border-2 text-gray-700 sm:text-sm"
                         >
-                            <option disabled className='text-lg' value="default"></option>
                             <option disabled className='text-lg' value="default">Filter by Division</option>
                             <option className='text-lg' value="dhaka">Dhaka</option>
                             <option className='text-lg' value="rajshahi">Rajshahi</option>
