@@ -22,6 +22,7 @@ import ManageUsers from '../Pages/DashboardPages/Admin/ManageUsers'
 import ViewDetails from '../Pages/RegularPages/ViewDetails';
 import Payment from '../Pages/Components/Payment';
 import AllBiodatas from '../Pages/RegularPages/AllBiodatas';
+import SuccessStory from '../Pages/DashboardPages/User/SuccessStory';
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             {
                 path: 'favourites-biodata',
                 element: <FavouriteBiodata />
+            },
+            {
+                path: 'success-story',
+                element: <SuccessStory />
             },
             // admin route
             {

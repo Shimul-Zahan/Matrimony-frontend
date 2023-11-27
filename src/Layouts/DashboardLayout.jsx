@@ -13,7 +13,7 @@ import './dashboard.css'
 
 const DashboardLayout = () => {
 
-    const isAdmin = true;
+    const isAdmin = false;
     const { logOut, user } = useContext(MyAuthContext);
     const handleLogOut = () => {
         logOut()
@@ -130,6 +130,17 @@ const DashboardLayout = () => {
                                                     <RiDislikeLine />
                                                 </span>
                                                 <h1 className='uppercase'>Favourites Biodata</h1>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink to='/dashboard/success-story' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <RiDislikeLine />
+                                                </span>
+                                                <h1 className='uppercase'>Success Story</h1>
                                             </div>
                                         </NavLink>
                                     </li>
