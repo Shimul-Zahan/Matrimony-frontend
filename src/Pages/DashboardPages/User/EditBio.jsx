@@ -299,11 +299,12 @@ const EditBio = () => {
                     <div className='flex flex-col lg:flex-row justify-start items-center gap-5'>
                         <div className="mb-6 w-full">
                             <label className="block text-base font-medium text-gray-700">
-                                Contact Email (User Email Readonly)
+                                Contact Email 
                             </label>
                             <input
                                 {...register('contactEmail', { readOnly: true })}
                                 type="email"
+                                value={user?.email}
                                 className="mt-1 p-2 w-full border rounded"
                             />
                         </div>

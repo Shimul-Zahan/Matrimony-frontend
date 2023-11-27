@@ -225,7 +225,7 @@ const ViewDetails = () => {
 
                                 <ul className="mt-4 grid gap-4 px-4 lg:px-0 sm:grid-cols-2 lg:grid-cols-2">
                                     {
-                                        recommendedDetails?.map(recommendBios =>
+                                        recommendedDetails?.slice(0, 2).map(recommendBios =>
                                             <li>
                                                 <Link to={`/viewDetails/${recommendBios._id}`} className="group block overflow-hidden">
                                                     <img

@@ -9,7 +9,7 @@ const ApprovePremium = () => {
   const { data, refetch, isLoading } = usePremiumRequest();
   const axiosSecureInstance = useAxiosSecure();
 
-  console.log(data?.premiumRequestStatus)
+  // console.log(data?.premiumRequestStatus)
 
   if (isLoading) {
     return <div>Loading...</div>

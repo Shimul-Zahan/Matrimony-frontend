@@ -21,6 +21,7 @@ import ContactRequestA from '../Pages/DashboardPages/Admin/ContactRequestA'
 import ManageUsers from '../Pages/DashboardPages/Admin/ManageUsers'
 import ViewDetails from '../Pages/RegularPages/ViewDetails';
 import Payment from '../Pages/Components/Payment';
+import AllBiodatas from '../Pages/RegularPages/AllBiodatas';
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/biodata',
-                element: <Biodatas />
+                element: <AllBiodatas />
             },
             {
                 path: 'viewDetails/:id',

@@ -3,13 +3,13 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
-import TitleBar from '../../Utils/TitleBar';
+// import TitleBar from '../../Utils/TitleBar';
 import useAllBiodatas from '../../Hooks/useAllBiodatas';
 import { Link } from 'react-router-dom';
 
 
 
-const Biodatas = () => {
+const Biodatas = ({ dispalyData }) => {
 
   const { data, refetch, isLoading } = useAllBiodatas();
 
@@ -18,13 +18,12 @@ const Biodatas = () => {
   }
 
   return (
-    <Container maxWidth='xl' sx={{ mt: 16, mb: 16 }}>
-      <TitleBar title={'ALL BIODATAS'} subTitle={'All Users Biodata Here'}/>
+    <Container maxWidth='xl' sx={{ mb: 16 }}>
       <Box container sx={{ width: '100%' }}>
-        <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3, lg:0 }}>
           {
             data?.map((user, index) =>
-              <Grid key={index} item xs={12} sm={12} md={6} lg={3}
+              <Grid key={index} item xs={12} sm={12} md={6} lg={4}
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
