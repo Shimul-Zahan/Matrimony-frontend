@@ -23,6 +23,7 @@ import ViewDetails from '../Pages/RegularPages/ViewDetails';
 import Payment from '../Pages/Components/Payment';
 import AllBiodatas from '../Pages/RegularPages/AllBiodatas';
 import SuccessStory from '../Pages/DashboardPages/User/SuccessStory';
+import AdminRoute from './AdminRoute';
 
 const router = createBrowserRouter([
     {
@@ -92,19 +93,19 @@ const router = createBrowserRouter([
             // admin route
             {
                 path: 'admin-dashboard',
-                element: <AdminPage />
+                element: <AdminRoute><AdminPage /></AdminRoute>
             },
             {
                 path: 'manage-users',
-                element: <ManageUsers />
+                element: <AdminRoute><ManageUsers /></AdminRoute>
             },
             {
                 path: 'approved-premium',
-                element: <ApprovePremium />
+                element: <AdminRoute><ApprovePremium /></AdminRoute>
             },
             {
                 path: 'approve-contact-request',
-                element: <ContactRequestA />
+                element: <AdminRoute><ContactRequestA /></AdminRoute>
             },
         ]
     }

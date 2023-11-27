@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { GrUserAdmin } from "react-icons/gr";
 import { FaUserCircle } from "react-icons/fa";
+import { MdWorkspacePremium } from "react-icons/md";
 
 const ManageUsers = () => {
 
@@ -26,15 +27,44 @@ const ManageUsers = () => {
             confirmButtonText: "Yes, request for it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                const res = axiosSecureInstance.patch(`/manage-users-role/${id}`)
-                if (res.data.acknowledged) {
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "You clicked the button!",
-                        icon: "success"
-                    });
-                    refetch()
-                }
+                axiosSecureInstance.patch(`/manage-users-role/${id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            Swal.fire({
+                                title: "Good job!",
+                                text: "You clicked the button!",
+                                icon: "success"
+                            });
+                            refetch()
+                        }
+                    })
+            }
+        });
+    }
+
+    const handleMakePremium = email => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to be a premium member!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, request for it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // console.log(email)
+                axiosSecureInstance.patch(`/manage-users-premium/${email}`)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            Swal.fire({
+                                title: "Good job!",
+                                text: "You clicked the button!",
+                                icon: "success"
+                            });
+                            refetch()
+                        }
+                    })
             }
         });
     }
@@ -66,7 +96,7 @@ const ManageUsers = () => {
 
                     <tbody className="divide-y divide-gray-200">
                         {
-                            data?.map((user, index) => 
+                            data?.map((user, index) =>
                                 <tr key={index} className='text-start'>
                                     <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                         {user?.name}
@@ -85,11 +115,19 @@ const ManageUsers = () => {
                                                 </button>
                                             </td>
                                     }
-                                    <td className="whitespace-nowrap px-4 py-2">
-                                        <button className="inline-block rounded px-4 py-2 text-lg font-medium text-white bg-indigo-500">
-                                            Make Premium
-                                        </button>
-                                    </td> 
+                                    {
+                                        user?.accountType === 'premium' ?
+                                            <td className="whitespace-nowrap px-4 py-2 ">
+                                                <button disabled className="inline-block rounded px-4 py-2 text-2xl text-yellow-500 font-medium">
+                                                    <MdWorkspacePremium />
+                                                </button>
+                                            </td> :
+                                            <td className="whitespace-nowrap px-4 py-2">
+                                                <button onClick={() => handleMakePremium(user?.email)} className="inline-block rounded px-4 py-2 text-lg font-medium text-white bg-indigo-500">
+                                                    Make Premium
+                                                </button>
+                                            </td>
+                                    }
                                     {
                                         user?.role === 'admin' ?
                                             <td className="whitespace-nowrap px-4 py-2">
