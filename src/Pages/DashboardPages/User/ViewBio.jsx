@@ -147,15 +147,20 @@ const ViewBio = () => {
                         {
                             data?.premiumRequestStatus === 'pending' ?
                                 <button disabled
-                                    className="bg-indigo-500 py-2 px-4 w-2/5 mx-auto rounded-sm text-white font-medium mt-4"
+                                    className="bg-red-500 py-2 px-4 w-2/5 mx-auto rounded-sm text-white font-medium mt-4"
                                 >
                                     Request Pending
-                                </button> :
-                                <button onClick={requestPremium}
-                                    className="bg-indigo-500 py-2 px-4 w-2/5 mx-auto rounded-sm text-white font-medium mt-4"
-                                >
-                                    Make biodata to premium
-                                </button>
+                                </button> : data?.accountType === 'premium' ?
+                                    <button disabled
+                                        className="bg-yellow-500 py-2 px-4 w-2/5 mx-auto rounded-sm text-white font-medium mt-4"
+                                    >
+                                        Premium Account
+                                    </button> :
+                                    <button onClick={requestPremium}
+                                        className="bg-indigo-500 py-2 px-4 w-2/5 mx-auto rounded-sm text-white font-medium mt-4"
+                                    >
+                                        Make biodata to premium
+                                    </button>
                         }
                     </div>
 
