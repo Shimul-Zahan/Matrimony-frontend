@@ -1,13 +1,42 @@
 import React from 'react'
 import TitleBar from '../../../Utils/TitleBar'
 import useManageUsersAdmin from '../../../Hooks/useManageUsersAdmin'
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+import { GrUserAdmin } from "react-icons/gr";
+import { FaUserCircle } from "react-icons/fa";
 
 const ManageUsers = () => {
 
     const { data, refetch, isLoading } = useManageUsersAdmin();
+    const axiosSecureInstance = useAxiosSecure();
 
     if (isLoading) {
         return <div>Loading...</div>
+    }
+
+    const handleUserRole = async (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to be a premium member!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, request for it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const res = axiosSecureInstance.patch(`/manage-users-role/${id}`)
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    });
+                    refetch()
+                }
+            }
+        });
     }
 
     return (
@@ -27,9 +56,11 @@ const ManageUsers = () => {
                                 Role
                             </th>
                             <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
+                                Make Premium
+                            </th>
+                            <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
                                 Make Admin
                             </th>
-                            <th className="px-4 py-2"></th>
                         </tr>
                     </thead>
 
@@ -41,16 +72,37 @@ const ManageUsers = () => {
                                         {user?.name}
                                     </td>
                                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user?.email}</td>
-                                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                                        <button className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                            User
-                                        </button>
-                                    </td>
+                                    {
+                                        user?.role === 'admin' ?
+                                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                                                <button disabled className="inline-block rounded px-4 py-2 text-xl font-medium">
+                                                    <GrUserAdmin />
+                                                </button>
+                                            </td> :
+                                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                                                <button className="inline-block rounded px-4 py-2 text-xl font-medium">
+                                                    <FaUserCircle />
+                                                </button>
+                                            </td>
+                                    }
                                     <td className="whitespace-nowrap px-4 py-2">
-                                        <button className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                            Make Admin
+                                        <button className="inline-block rounded px-4 py-2 text-lg font-medium text-white bg-indigo-500">
+                                            Make Premium
                                         </button>
-                                    </td>
+                                    </td> 
+                                    {
+                                        user?.role === 'admin' ?
+                                            <td className="whitespace-nowrap px-4 py-2">
+                                                <button disabled className="inline-block rounded px-4 py-2 text-lg font-medium">
+                                                    Admin
+                                                </button>
+                                            </td> :
+                                            <td className="whitespace-nowrap px-4 py-2">
+                                                <button onClick={() => handleUserRole(user?._id)} className="inline-block rounded bg-indigo-500 px-4 py-2 text-lg font-medium text-white hover:bg-indigo-500">
+                                                    Make Admin
+                                                </button>
+                                            </td>
+                                    }
                                 </tr>
                             )
                         }

@@ -10,10 +10,12 @@ import { CiSquareQuestion } from "react-icons/ci";
 import { RiDislikeLine } from "react-icons/ri";
 import { MyAuthContext } from '../Context/AuthContext';
 import './dashboard.css'
+import fetchAdmin from '../Hooks/fetchAdmin';
 
 const DashboardLayout = () => {
 
-    const isAdmin = false;
+    const { data, refetch, isLoading } = fetchAdmin();
+    const isAdmin = data?.isAdmin;
     const { logOut, user } = useContext(MyAuthContext);
     const handleLogOut = () => {
         logOut()
