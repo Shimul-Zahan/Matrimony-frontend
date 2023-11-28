@@ -18,6 +18,10 @@ const AllBiodatas = () => {
     const [dispalyData, setDisplayData] = useState()
 
     useEffect(() => {
+        setDisplayData(data);
+    }, [isLoading])
+
+    useEffect(() => {
         axiosSecureInstance.get(`/filter-data?division=${division}`)
             .then(res => {
                 setDisplayData(res.data)
@@ -55,7 +59,7 @@ const AllBiodatas = () => {
     }
 
     return (
-        <div className='pt-10'>
+        <div className='pt-10 min-h-screen'>
             <TitleBar title={'ALL BIODATAS'} />
             <div className="container mx-auto grid grid-cols-1 gap-4 lg:grid-cols-[300px_1fr] lg:gap-8">
                 <div className="space-y-2 px-5">
@@ -131,7 +135,7 @@ const AllBiodatas = () => {
                         <Box container sx={{ width: '100%' }}>
                             <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 0 }}>
                                 {
-                                    dispalyData?.length !== 0 ? dispalyData?.map((user, index) =>
+                                    dispalyData?.map((user, index) =>
                                         <Grid key={index} item xs={12} sm={12} md={6} lg={4}
                                             style={{
                                                 display: 'flex',
@@ -179,56 +183,7 @@ const AllBiodatas = () => {
                                                 </CardActions>
                                             </Card>
                                         </Grid>
-                                    ) :
-                                        data?.map((user, index) =>
-                                            <Grid key={index} item xs={12} sm={12} md={6} lg={4}
-                                                style={{
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center'
-                                                }}
-                                            >
-                                                <Card sx={{ maxWidth: 345 }}>
-                                                    <CardMedia
-                                                        sx={{ height: 240, width: 400 }}
-                                                        image={user?.image}
-                                                        title="green iguana"
-                                                    />
-                                                    <CardContent>
-                                                        <Typography gutterBottom variant="h6" component="div">
-                                                            Biodata ID: {user?.biodataId}
-                                                        </Typography>
-                                                        <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
-                                                            Occupation: {user?.occupation}
-                                                        </Typography>
-                                                        <Grid style={{
-                                                            display: 'flex',
-                                                            justifyContent: 'space-between',
-                                                            alignItems: 'center',
-                                                            textTransform: 'capitalize'
-                                                        }}>
-                                                            <Typography gutterBottom variant="body6" component="div" >
-                                                                Biodata Type: {user?.biodataType}
-                                                            </Typography>
-                                                            <Typography gutterBottom variant="body6" component="div">
-                                                                Age: {user?.age}
-                                                            </Typography>
-                                                        </Grid>
-                                                        <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
-                                                            Permanent Division: {user?.permanentDivision}
-                                                        </Typography>
-                                                        <Typography variant="body6" color="text.secondary">
-
-                                                        </Typography>
-                                                    </CardContent>
-                                                    <CardActions>
-                                                        <Link to={`/viewDetails/${user?._id}`}>
-                                                            <Button sx={{ backgroundColor: '#1976D2', color: '#000' }} size="lg">View Profile</Button>
-                                                        </Link>
-                                                    </CardActions>
-                                                </Card>
-                                            </Grid>
-                                        )
+                                    ) 
                                 }
                             </Grid>
                         </Box>

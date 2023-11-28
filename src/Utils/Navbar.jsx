@@ -16,12 +16,13 @@ import { ListItem } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import './navbar.css'
 import { MyAuthContext } from '../Context/AuthContext';
+import fetchAdmin from '../Hooks/fetchAdmin';
 
 
 const Navbar = () => {
 
     const { user, logOut } = React.useContext(MyAuthContext);
-
+    const {admin}=fetchAdmin()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -112,10 +113,15 @@ const Navbar = () => {
                                     <MenuItem sx={{ fontFamily: 'cursive' }}>CONTACT</MenuItem>
                                 </NavLink>
                                 {
-                                    user && <NavLink to='/dashboard'>
+                                    user && <NavLink to='/dashboard/edit-biodata'>
                                         <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
                                     </NavLink>
                                 }
+                                {/* {
+                                    user && <NavLink to='/dashboard/edit-biodata'>
+                                        <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                    </NavLink>
+                                } */}
                             </Menu>
                         </Box>
                         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

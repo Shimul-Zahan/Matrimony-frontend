@@ -5,14 +5,15 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 const AdminRoute = ({children}) => {
     const { user, loading } = useContext(MyAuthContext);
-    const { data, isLoading } = fetchAdmin();
+    const { admin, isLoading } = fetchAdmin();
+    console.log(admin)
     const location = useLocation();
 
     if (loading || isLoading) {
         return <div>Loading...</div>
     }
 
-    if (user && data.isAdmin) {
+    if (user && admin.isAdmin) {
         return children
     }
 

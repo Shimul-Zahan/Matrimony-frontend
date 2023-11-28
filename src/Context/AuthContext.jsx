@@ -1,14 +1,17 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react'
 import auth from '../Firebase/firebase.config';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 export const MyAuthContext = createContext(null);
 
 const AuthContext = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(false);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
+    const axiosSecureInstance = useAxiosSecure();
 
     const emailCreateUser = (email, password) => {
         setLoading(true)
@@ -35,20 +38,21 @@ const AuthContext = ({ children }) => {
             setUser(currentUser);
             setLoading(false)
 
-            // const email = currentUser?.email || user?.email;
-            // const loggedUser = { email: email };
+            const email = currentUser?.email || user?.email;
+            const loggedUser = { email: email };
 
-            // if (currentUser) {
-            //     axios.post('https://food-shareing-serversite.vercel.app/jwt', (loggedUser), { withCredentials: true })
-            //         .then(res => {
-            //             console.log("token ", res.data)
-            //         });
-            // } else {
-            //     axios.post('https://food-shareing-serversite.vercel.app/logout', (loggedUser), { withCredentials: true })
-            //         .then(res => {
-            //             console.log("token ", res.data)
-            //         });
-            // }
+            if (currentUser) {
+                axiosSecureInstance.post('/jwt', (loggedUser))
+                    .then(res => {
+                        setToken(true);
+                        // console.log("token ", res.data)
+                    });
+            } else {
+                axiosSecureInstance.post('/logout', (loggedUser))
+                    .then(res => {
+                        // console.log("token ", res.data)
+                    });
+            }
 
         })
         return (() => {
@@ -62,7 +66,8 @@ const AuthContext = ({ children }) => {
         emailCreateUser,
         emailLogin,
         googleLogin,
-        logOut
+        logOut,
+        token
     }
 
     return (

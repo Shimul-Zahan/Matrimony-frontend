@@ -4,11 +4,12 @@ import useGetAxios from './useGetAxios';
 import { useQuery } from '@tanstack/react-query';
 
 const useAllBiodatas = () => {
-    const { user } = useContext(MyAuthContext);
+    const { user, token } = useContext(MyAuthContext);
     const axioPublicGetInstance = useGetAxios();
 
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['all-biodatas'],
+        enabled: token,
         queryFn: async () => {
             const res = await axioPublicGetInstance.get('/all-users')
             return await res.data

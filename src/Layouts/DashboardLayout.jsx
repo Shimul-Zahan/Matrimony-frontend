@@ -14,9 +14,10 @@ import fetchAdmin from '../Hooks/fetchAdmin';
 
 const DashboardLayout = () => {
 
-    const { data, refetch, isLoading } = fetchAdmin();
-    const isAdmin = data?.isAdmin;
+    const { admin } = fetchAdmin();
+    console.log(admin)
     const { logOut, user } = useContext(MyAuthContext);
+
     const handleLogOut = () => {
         logOut()
             .then(res => console.log(res.data))
@@ -33,9 +34,8 @@ const DashboardLayout = () => {
                         >
                             <span className='text-[#1976D2] font-bold text-2xl'>MEMORY</span>Metromony BD
                         </span>
-
                         {
-                            isAdmin ? 
+                            admin?.isAdmin ?
                                 <ul className="mt-6 space-y-4">
                                     <li>
                                         <NavLink to='/dashboard/admin-dashboard' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
