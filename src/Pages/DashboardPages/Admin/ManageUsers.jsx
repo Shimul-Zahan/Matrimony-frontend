@@ -118,7 +118,7 @@ const ManageUsers = () => {
                                     {
                                         user?.accountType === 'premium' ?
                                             <td className="whitespace-nowrap px-4 py-2 ">
-                                                <button disabled className="inline-block rounded px-4 py-2 text-2xl text-yellow-500 font-medium">
+                                                <button disabled className=" flex justify-center items-center w-32 rounded px-4 py-2 text-2xl text-yellow-500 font-medium">
                                                     <MdWorkspacePremium />
                                                 </button>
                                             </td> :
@@ -131,8 +131,8 @@ const ManageUsers = () => {
                                     {
                                         user?.role === 'admin' ?
                                             <td className="whitespace-nowrap px-4 py-2">
-                                                <button disabled className="inline-block rounded px-4 py-2 text-lg font-medium">
-                                                    Admin
+                                                <button disabled className="flex justify-center items-center w-32 rounded px-4 py-2 text-lg font-medium">
+                                                    <GrUserAdmin />
                                                 </button>
                                             </td> :
                                             <td className="whitespace-nowrap px-4 py-2">

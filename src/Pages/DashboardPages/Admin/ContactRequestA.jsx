@@ -29,7 +29,7 @@ const ContactRequestA = () => {
         <div>
             <TitleBar title={'APPROVE CONTACT REQUEST'} />
             <div className="overflow-x-auto lg:px-10">
-                <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-base">
+                <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-lg">
                     <thead className="ltr:text-left rtl:text-right">
                         <tr className='bg-gray-100'>
                             <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
@@ -69,8 +69,8 @@ const ContactRequestA = () => {
                                                 </button>
                                             </td> :
                                             <td className="whitespace-nowrap px-4 py-2">
-                                                <button disabled className="inline-block rounded bg-indigo-100 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                                    Requested Approved 
+                                                <button disabled className="inline-block rounded bg-yellow-500 px-4 py-2 text-lg font-medium">
+                                                    Approved
                                                 </button>
                                             </td>
                                     }

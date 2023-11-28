@@ -33,7 +33,7 @@ const ApprovePremium = () => {
       <TitleBar title={'APPROVE PREMIUM REQUEST'} />
       <div className='pb-10'>
         <div className="overflow-x-auto lg:px-10">
-          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-base">
+          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-lg">
             <thead className="ltr:text-left rtl:text-right">
               <tr className='bg-gray-100'>
                 <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
@@ -51,7 +51,6 @@ const ApprovePremium = () => {
                 <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
                   Action
                 </th>
-                <th className="px-4 py-2"></th>
               </tr>
             </thead>
 
@@ -66,18 +65,18 @@ const ApprovePremium = () => {
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user?.email}</td>
                     {
                       user?.premiumRequestStatus === "approved" ?
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">Premium</td> :
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">Pending</td>
+                        <td className="whitespace-nowrap px-4 py-2 text-yellow-500">Premium</td> :
+                        <td className="whitespace-nowrap px-4 py-2 text-red-500">Pending</td>
                     }
                     {
                       user?.premiumRequestStatus === 'approved' ?
                         <td className="whitespace-nowrap px-4 py-2">
-                          <button disabled className="inline-block rounded bg-indigo-100 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-100">
+                          <button disabled className="inline-block rounded text-yellow-500 px-4 py-2 text-lg font-medium">
                             Approved
                           </button>
                         </td>:
                         <td className="whitespace-nowrap px-4 py-2">
-                          <button onClick={() => handleApprovePremium(user?.biodataId)} className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                          <button onClick={() => handleApprovePremium(user?.biodataId)} className="inline-block rounded bg-indigo-600 px-4 py-2 text-lg font-medium text-white hover:bg-indigo-700">
                             Approve
                           </button>
                         </td> 

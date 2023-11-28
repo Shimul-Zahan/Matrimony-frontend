@@ -13,7 +13,6 @@ const SuccessStory = () => {
 
 
     const onSubmit = async (data) => {
-        console.log(data)
 
         const imageFile = { image: data.image[0] }
         const res = await axioPublicInstance.post(image_hosting_api, imageFile, {
@@ -28,7 +27,8 @@ const SuccessStory = () => {
                 partnerBiodataNumber: parseInt(data.partnerBiodata),
                 date: new Date().toLocaleDateString(),
                 successStoryReview: data.SuccessStoryReview,
-                image
+                image,
+                rating: data.rating
             }
             const res = await axiosSecureInstance.post('/success-story', makeMarrigeStory)
             if (res.data.insertedId) {
@@ -62,6 +62,13 @@ const SuccessStory = () => {
                                 <span className="label-text">Partner Biodata Number</span>
                             </label>
                             <input {...register("partnerBiodata", { required: true })} type="number" placeholder="Partner Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900' />
+                        </div>
+
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Rating for us</span>
+                            </label>
+                            <input {...register("rating", { required: true })} type="number" placeholder="Partner Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900' />
                         </div>
 
                     </div>

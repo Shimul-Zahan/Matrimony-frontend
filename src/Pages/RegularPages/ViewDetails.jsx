@@ -209,10 +209,15 @@ const ViewDetails = () => {
                                                 <span className='text-yellow-500'><FaLock /></span>Request Contact Information</button>
                                         </Link>
                                 }
-                                <div>
-                                    <button onClick={addToFavourite} className='bg-indigo-700 flex justify-center items-center gap-2 w-full mt-5 py-2 text-white text-lg rounded-sm'>
-                                        <span className=''><IoAddCircleOutline className='text-2xl' /></span>Add to Favourite</button>
-                                </div>
+                                {
+                                    user?.email !== detailsData?.userEmail &&
+                                    <div>
+                                        <button onClick={addToFavourite} className='bg-indigo-700 flex justify-center items-center gap-2 w-full mt-5 py-2 text-white text-lg rounded-sm'>
+                                            <span className=''>
+                                                <IoAddCircleOutline className='text-2xl' />
+                                            </span>Add to Favourite</button>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>

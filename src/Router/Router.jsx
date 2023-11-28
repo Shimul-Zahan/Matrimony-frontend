@@ -24,6 +24,7 @@ import Payment from '../Pages/Components/Payment';
 import AllBiodatas from '../Pages/RegularPages/AllBiodatas';
 import SuccessStory from '../Pages/DashboardPages/User/SuccessStory';
 import AdminRoute from './AdminRoute';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'viewDetails/:id',
-                element: <ViewDetails />,
+                element: <PrivateRoute><ViewDetails /></PrivateRoute>,
             },
             {
                 path: 'cheekout/:id',

@@ -99,7 +99,7 @@ const AllBiodatas = () => {
                                 <form onSubmit={handleFilterByAge} className=''>
                                     <div className="flex justify-between flex-col gap-4">
                                         <label htmlFor="FilterPriceFrom" className="flex items-center gap-2">
-                                            <span className="text-lg text-gray-600">Min age</span>
+                                            <span className="text-sm text-gray-600">Min age</span>
 
                                             <input
                                                 type="number"
@@ -110,7 +110,7 @@ const AllBiodatas = () => {
                                         </label>
 
                                         <label htmlFor="FilterPriceTo" className="flex items-center gap-2">
-                                            <span className="text-lg text-gray-600">Max age</span>
+                                            <span className="text-sm text-gray-600">Max age</span>
 
                                             <input
                                                 type="number"
