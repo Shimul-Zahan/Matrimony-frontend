@@ -25,6 +25,7 @@ import AllBiodatas from '../Pages/RegularPages/AllBiodatas';
 import SuccessStory from '../Pages/DashboardPages/User/SuccessStory';
 import AdminRoute from './AdminRoute';
 import PrivateRoute from './PrivateRoute';
+import SuccessStoryAdmin from '../Pages/DashboardPages/Admin/SuccessStoryAdmin';
 
 const router = createBrowserRouter([
     {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
             {
                 path: 'approve-contact-request',
                 element: <AdminRoute><ContactRequestA /></AdminRoute>
+            },
+            {
+                path: 'success-story-admin',
+                element: <AdminRoute><SuccessStoryAdmin /></AdminRoute>
             },
         ]
     }

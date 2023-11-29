@@ -3,19 +3,19 @@ import { MyAuthContext } from '../Context/AuthContext';
 import useGetAxios from './useGetAxios';
 import { useQuery } from '@tanstack/react-query';
 
-const useStatistics = () => {
-    const { user } = useContext(MyAuthContext);
+const useCount = () => {
+    const { user, token } = useContext(MyAuthContext);
     const axioPublicGetInstance = useGetAxios();
 
-    const { data, refetch, isLoading } = useQuery({
-        queryKey: ['statistics'],
+    const { data: count, refetch, isLoading } = useQuery({
+        queryKey: ['all-users-count'],
         queryFn: async () => {
-            const res = await axioPublicGetInstance.get('/statistics')
+            const res = await axioPublicGetInstance.get('/count')
             return await res.data
         }
     })
 
-    return { data, refetch, isLoading }
+    return { count, refetch, isLoading }
 }
 
-export default useStatistics
+export default useCount

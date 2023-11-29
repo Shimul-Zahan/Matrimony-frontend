@@ -113,15 +113,13 @@ const Navbar = () => {
                                     <MenuItem sx={{ fontFamily: 'cursive' }}>CONTACT</MenuItem>
                                 </NavLink>
                                 {
-                                    user && <NavLink to='/dashboard/edit-biodata'>
+                                    user && admin?.isAdmin ? <NavLink to='/dashboard/admin-dashboard'>
                                         <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
-                                    </NavLink>
+                                    </NavLink> :
+                                        user && user && <NavLink to='/dashboard/edit-biodata'>
+                                            <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                        </NavLink>
                                 }
-                                {/* {
-                                    user && <NavLink to='/dashboard/edit-biodata'>
-                                        <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
-                                    </NavLink>
-                                } */}
                             </Menu>
                         </Box>
                         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -157,9 +155,12 @@ const Navbar = () => {
                                 <MenuItem sx={{ fontFamily: 'cursive' }}>CONTACT</MenuItem>
                             </NavLink>
                             {
-                                user && <NavLink to='/dashboard'>
+                                user && admin?.isAdmin ? <NavLink to='/dashboard/admin-dashboard'>
                                     <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
-                                </NavLink>
+                                </NavLink> :
+                                    user && user && <NavLink to='/dashboard/edit-biodata'>
+                                        <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                    </NavLink>
                             }
                         </Box>
 

@@ -81,6 +81,17 @@ const DashboardLayout = () => {
                                         </NavLink>
                                     </li>
 
+                                    <li>
+                                        <NavLink to='/dashboard/success-story-admin' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <FcApproval />
+                                                </span>
+                                                <h1 className='uppercase'>Success Story</h1>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+
                                     <Link className="block rounded-lg px-4 py-2 text-base font-medium text-gray-500 ">
                                         <button onClick={handleLogOut}
                                             className='border-2 py-2 px-4 flex items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>

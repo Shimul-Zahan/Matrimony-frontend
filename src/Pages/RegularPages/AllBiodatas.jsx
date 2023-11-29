@@ -1,61 +1,77 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Biodatas from './Biodatas'
 import TitleBar from '../../Utils/TitleBar'
 import useAxiosSecure from '../../Hooks/useAxiosSecure'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Pagination, Stack, Typography } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
 import useAllBiodatas from '../../Hooks/useAllBiodatas';
 import { Link } from 'react-router-dom';
+import { MyAuthContext } from '../../Context/AuthContext';
+import useCount from '../../Hooks/useCount';
+import { useQuery } from '@tanstack/react-query';
 
 const AllBiodatas = () => {
 
-    const { data, refetch, isLoading } = useAllBiodatas();
-    const [gender, setGender] = useState(undefined);
-    const [division, setDivision] = useState(undefined);
-    const axiosSecureInstance = useAxiosSecure('');
-    const [dispalyData, setDisplayData] = useState()
+    const [checkGender, setCheckGender] = useState('')
+    const [check, setCheck] = useState('')
+    const [lowAge, setLowAge] = useState('')
+    const [highAge, setHighAge] = useState('')
 
-    useEffect(() => {
-        setDisplayData(data);
-    }, [isLoading])
 
-    useEffect(() => {
-        axiosSecureInstance.get(`/filter-data?division=${division}`)
-            .then(res => {
-                setDisplayData(res.data)
-            })
-    }, [division])
+    const [totalData, setTotalData] = useState(0)
+    const [page, setPage] = useState(0)
+    const axiosSecureInstance = useAxiosSecure();
+    const totalPage = Math.ceil(parseInt(totalData / 4));
+    const countableBtn = [...Array(totalPage).keys()]
+    axiosSecureInstance.get("/count").then((res) => setTotalData(res.data.count))
+    console.log(check, page, checkGender, lowAge, highAge, 'filter');
 
-    useEffect(() => {
-        axiosSecureInstance.get(`/filter-data?gender=${gender}`)
-            .then(res => {
-                setDisplayData(res.data)
-            })
-    }, [gender])
+    const { data: allBiodata = [], isLoading } = useQuery({
+        queryKey: ['allBioDatas', check, checkGender, page, highAge, lowAge],
+        queryFn: async () => {
+            const res = await axiosSecureInstance.get(`/filter-data?search=${check}&gender=${checkGender}&page=${page}&lowAge=${lowAge}&highAge=${highAge}`)
+            return res.data;
+        }
+    })
 
-    console.log(dispalyData, 'displaydata')
-    console.log(data, 'dataAll')
-
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
 
     const handleFilterByAge = async (e) => {
         e.preventDefault();
-        const lowAge = e.target.lowAge.value;
-        const highAge = e.target.highAge.value;
-        const res = await axiosSecureInstance.get(`/filter-data?low=${lowAge}&high=${highAge}`)
-        setDisplayData(res.data);
+        const lowAge = parseInt(e.target.lowAge.value);
+        const highAge = parseInt(e.target.highAge.value);
+        setLowAge(lowAge);
+        setHighAge(highAge);
+        setPage(0)
+        setCheckGender('')
+        setCheck('')
     }
 
-    const handleGenderFilter = (e) => {
-        setGender(e.target.value);
+    const handleCount = (event, value) => {
+        setPage(value - 1)
+        setCheck('')
+        setCheckGender('')
+        setLowAge('');
+        setHighAge('');
     }
 
-    const handleDivisionFilter = (e) => {
-        setDivision(e.target.value);
+    const handleCheek = (e) => {
+        const check = e.target.value
+        setCheck(check);
+        setCheckGender('');
+        setPage(0)
+        setLowAge('');
+        setHighAge('');
+    }
+
+    const handleCheekGender = (e) => {
+        const gender = e.target.value
+        setCheckGender(gender);
+        setCheck('');
+        setPage(0);
+        setLowAge('');
+        setHighAge('');
     }
 
     return (
@@ -65,7 +81,7 @@ const AllBiodatas = () => {
                 <div className="space-y-2 px-5">
                     <div className='w-full lg:px-0'>
                         <h1 className='text-base text-indigo-700'>Filter by Biodata Type</h1>
-                        <select onChange={handleGenderFilter}
+                        <select onChange={handleCheek}
                             className="mt-1.5 w-full text-lg px-2 py-3 rounded-lg border-black border-2 text-gray-700 sm:text-sm"
                         >
                             <option disabled className='text-lg' value="gender">Filter by Biodata Type</option>
@@ -75,7 +91,7 @@ const AllBiodatas = () => {
                     </div>
                     <div className='w-full text-lg lg:px-0'>
                         <h1 className='text-base text-indigo-700'>Filter by division</h1>
-                        <select onChange={handleDivisionFilter}
+                        <select onChange={handleCheekGender}
                             className="mt-1.5 w-full px-2 py-3 rounded-lg border-black border-2 text-gray-700 sm:text-sm"
                         >
                             <option disabled className='text-lg' value="default">Filter by Division</option>
@@ -130,12 +146,13 @@ const AllBiodatas = () => {
                         </div>
                     </details>
                 </div>
+
                 <div className="w-full">
-                    <Container maxWidth='xl' sx={{ mb: 16 }}>
+                    <Container maxWidth='xl' sx={{ mb: 5 }}>
                         <Box container sx={{ width: '100%' }}>
                             <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 0 }}>
                                 {
-                                    dispalyData?.map((user, index) =>
+                                    allBiodata?.map((user, index) =>
                                         <Grid key={index} item xs={12} sm={12} md={6} lg={4}
                                             style={{
                                                 display: 'flex',
@@ -183,11 +200,14 @@ const AllBiodatas = () => {
                                                 </CardActions>
                                             </Card>
                                         </Grid>
-                                    ) 
+                                    )
                                 }
                             </Grid>
                         </Box>
                     </Container>
+                    <Stack spacing={3} sx={{ my: 10 }}>
+                        <Pagination count={countableBtn.length} page={page + 1} onChange={handleCount} variant="outlined" shape="rounded" />
+                    </Stack>
                 </div>
             </div>
         </div>
