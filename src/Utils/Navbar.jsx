@@ -49,7 +49,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar position="fixed" sx={{fontFamily: 'cursive'}} >
+            <AppBar position="fixed" sx={{ fontFamily: 'cursive', backgroundColor: '#164863'}} >
                 <Container sx={{ padding: 1 }} maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

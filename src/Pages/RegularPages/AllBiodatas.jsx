@@ -21,7 +21,7 @@ const AllBiodatas = () => {
     const [totalData, setTotalData] = useState(0)
     const [page, setPage] = useState(0)
     const axiosSecureInstance = useAxiosSecure();
-    const totalPage = Math.ceil((totalData / 6));
+    const totalPage = Math.ceil((totalData / 5));
     console.log(totalPage)
     const countableBtn = [...Array(totalPage).keys()]
     console.log(countableBtn)
@@ -165,7 +165,7 @@ const AllBiodatas = () => {
                                                 alignItems: 'center'
                                             }}
                                         >
-                                            <Card sx={{ maxWidth: 345 }}>
+                                            <Card sx={{ maxWidth: 345, backgroundColor: '#DDF2FD' }}>
                                                 <CardMedia
                                                     sx={{ height: 240, width: 400 }}
                                                     image={user?.image}
@@ -200,7 +200,7 @@ const AllBiodatas = () => {
                                                 </CardContent>
                                                 <CardActions>
                                                     <Link to={`/viewDetails/${user?._id}`}>
-                                                        <Button sx={{ backgroundColor: '#1976D2', color: '#000' }} size="lg">View Profile</Button>
+                                                        <Button sx={{ backgroundColor: '#1976D2', color: '#fff', }} size="lg">View Profile</Button>
                                                     </Link>
                                                 </CardActions>
                                             </Card>

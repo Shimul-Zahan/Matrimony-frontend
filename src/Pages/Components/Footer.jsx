@@ -3,7 +3,7 @@ import logo from '../../assets/icons/group.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-[#1976D2] text-white">
+        <footer className="bg-[#164863] text-white">
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="flex justify-center text-white">
                     

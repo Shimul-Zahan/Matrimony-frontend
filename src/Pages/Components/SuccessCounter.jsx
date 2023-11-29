@@ -6,7 +6,7 @@ import img1 from '../../assets/icons/group.png'
 import img2 from '../../assets/icons/woman.png'
 import img3 from '../../assets/icons/young-man.png'
 import img4 from '../../assets/icons/couple.png'
-import bg from '../../assets/slider-resources/couple-newlyweds-hugging.jpg'
+import bg from '../../assets/copy.jpg'
 import useStatistics from '../../Hooks/useStatistics';
 
 const SuccessCounter = () => {

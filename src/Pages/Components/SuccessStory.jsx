@@ -21,28 +21,28 @@ const Testimonials = () => {
 
     return (
 
-        <>
+        <div className=''>
             <Container maxWidth='lg'>
                 <div>
                     <TitleBar title={'SUCCESS STORY'} subTitle={'Here Some of Our Success Stroy'} />
                 </div>
-                <Box sx={{ my: 10 }}>
+                <Box sx={{ my: 10, backgroundColor: '' }}>
                     <Swiper navigation={true} modules={[Navigation, Autoplay]} className="mySwiper">
 
                         {
-                            data?.map(story => 
+                            data?.map(story =>
                                 <SwiperSlide>
                                     <div className='flex  flex-col justify-center ite items-center space-y-4 mx-14 lg:mx-28'>
 
-                                        <img src={story?.image} alt="" className='rounded-lg h-[200px] w-[300px]' />
-                                        <p className='text-black lg:text-[25px] text-2xl font-semibold'>{story?.date }</p>
+                                        <img src={story?.image} alt="" className='rounded-full h-[250px] w-[250px]' />
+                                        <p className='text-black lg:text-[25px] text-2xl font-semibold'>{story?.date}</p>
 
                                         <Rating
                                             style={{ maxWidth: 180 }}
                                             value={story?.rating}
                                             readOnly
                                         />
-                                        <h1 className='text-[#444] font-medium text-xl  lg:text-[20px] text-center'>{story?.successStoryReview }</h1>
+                                        <h1 className='text-[#444] font-medium text-xl  lg:text-[20px] text-center'>{story?.successStoryReview}</h1>
                                     </div>
                                 </SwiperSlide>
                             )
@@ -51,7 +51,7 @@ const Testimonials = () => {
                     </Swiper>
                 </Box>
             </Container>
-        </>
+        </div>
     );
 };
 
