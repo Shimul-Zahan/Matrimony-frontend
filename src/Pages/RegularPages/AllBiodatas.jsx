@@ -5,12 +5,12 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Pagination, Stack, Typography } from '@mui/material';
-import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
 import useAllBiodatas from '../../Hooks/useAllBiodatas';
 import { Link } from 'react-router-dom';
 import { MyAuthContext } from '../../Context/AuthContext';
 import useCount from '../../Hooks/useCount';
 import { useQuery } from '@tanstack/react-query';
+import useStatistics from '../../Hooks/useStatistics';
 
 const AllBiodatas = () => {
 
@@ -18,15 +18,19 @@ const AllBiodatas = () => {
     const [check, setCheck] = useState('')
     const [lowAge, setLowAge] = useState('')
     const [highAge, setHighAge] = useState('')
-
-
     const [totalData, setTotalData] = useState(0)
     const [page, setPage] = useState(0)
     const axiosSecureInstance = useAxiosSecure();
-    const totalPage = Math.ceil(parseInt(totalData / 4));
+    const totalPage = Math.ceil((totalData / 6));
+    console.log(totalPage)
     const countableBtn = [...Array(totalPage).keys()]
-    axiosSecureInstance.get("/count").then((res) => setTotalData(res.data.count))
-    console.log(check, page, checkGender, lowAge, highAge, 'filter');
+    console.log(countableBtn)
+
+    useEffect(() => {
+        axiosSecureInstance.get("/count").then((res) => setTotalData(res.data.count))
+    }, [])
+
+    console.log(totalData);
 
     const { data: allBiodata = [], isLoading } = useQuery({
         queryKey: ['allBioDatas', check, checkGender, page, highAge, lowAge],
@@ -36,6 +40,7 @@ const AllBiodatas = () => {
         }
     })
 
+    
 
     const handleFilterByAge = async (e) => {
         e.preventDefault();

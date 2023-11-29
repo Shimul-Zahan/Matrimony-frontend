@@ -21,9 +21,9 @@ const ViewDetails = () => {
     const { user } = useContext(MyAuthContext);
 
 
-    const detailsData = data.find(user => user._id === id)
-    const recommendedDetails = data.filter(user => user.biodataType === detailsData.biodataType && user._id !== id)
-    const premiumMember = data.find(member => member.userEmail === user?.email && member.accountType === 'premium');
+    const detailsData = data?.find(user => user._id === id)
+    const recommendedDetails = data?.filter(user => user.biodataType === detailsData.biodataType && user._id !== id)
+    const premiumMember = data?.find(member => member.userEmail === user?.email && member.accountType === 'premium');
     const axioPublicInstance = usePublicAxios();
 
     const addToFavourite = async () => {
@@ -49,7 +49,7 @@ const ViewDetails = () => {
                 text: `${res.data.message}`,
             });
         }
-        
+
     }
 
     return (
@@ -186,7 +186,7 @@ const ViewDetails = () => {
                                     <span className="relative z-10 bg-white px-6">Contact Information</span>
                                 </span>
                                 {
-                                    premiumMember ? 
+                                    premiumMember || user?.email === detailsData?.userEmail ?
                                         <div className="flow-root mt-5">
                                             <dl className="-my-3 divide-y divide-gray-100 text-lg">
                                                 <div
@@ -203,7 +203,7 @@ const ViewDetails = () => {
                                                     <dd className="text-gray-700 sm:col-span-2">{detailsData?.mobileNumber}</dd>
                                                 </div>
                                             </dl>
-                                        </div> :
+                                        </div> : 
                                         <Link to={`/cheekout/${detailsData?.biodataId}`}>
                                             <button className='bg-indigo-700 flex justify-center items-center gap-3 w-full mt-5 py-2 text-white text-lg rounded-sm'>
                                                 <span className='text-yellow-500'><FaLock /></span>Request Contact Information</button>
