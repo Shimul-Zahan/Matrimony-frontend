@@ -4,15 +4,18 @@ import Box from '@mui/material/Box';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography, capitalize } from '@mui/material';
 import img from '../../assets/slider-resources/andy-holmes-XaQ-aaMJKgc-unsplash.jpg'
 import TitleBar from '../../Utils/TitleBar';
-import useAllBiodatas from '../../Hooks/useAllBiodatas';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
+import useAllBiodatas from '../../Hooks/useAllBiodatas';
 
 
 const PremiumMember = () => {
 
     const { data, refetch, isLoading } = useAllBiodatas();
+    console.log(data)
+
     if (isLoading) {
-        return <div>Loading....</div>
+        return <Loading />
     }
 
     const premiumAccount = data?.filter(user => user.accountType === 'premium')
@@ -23,7 +26,7 @@ const PremiumMember = () => {
             <TitleBar className='text-[#FFC436]' title={'Premium Section'} subTitle={'Here Our Some Premium Members'} />
             <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {
-                    premiumAccount?.slice(0, 6).map((user, index) => 
+                    premiumAccount?.map((user, index) => 
                         <Grid key={index} item xs={12} sm={6} md={4} lg={3}
                             style={{
                                 display: 'flex',

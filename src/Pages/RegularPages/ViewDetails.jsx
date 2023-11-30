@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import { MyAuthContext } from '../../Context/AuthContext';
 import usePublicAxios from '../../Hooks/usePublicAxios';
 import Swal from 'sweetalert2';
+import Loading from '../Components/Loading';
 
 const ViewDetails = () => {
 
@@ -14,7 +15,7 @@ const ViewDetails = () => {
     const { data, isLoading } = useAllBiodatas();
     const [totalPage, setTotalPage] = useState(pages);
     if (isLoading) {
-        return <div>Loading...</div>
+        return <Loading />
     }
 
     const { id } = useParams();

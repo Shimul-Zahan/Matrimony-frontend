@@ -10,7 +10,6 @@ const useAllBiodatas = () => {
 
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['all-biodatas'],
-        enabled: token,
         queryFn: async () => {
             const res = await axiosSecureInstance.get('/all-users')
             return await res.data
