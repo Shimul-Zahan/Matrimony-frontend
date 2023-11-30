@@ -24,8 +24,8 @@ const HowItWorks = () => {
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
                         align="right"
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         First
                     </TimelineOppositeContent>
@@ -37,17 +37,17 @@ const HowItWorks = () => {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Registration
                         </Typography>
-                        <Typography>Registration to use our site</Typography>
+                        <Typography sx={{ color: '#0174BE' }}>Registration to use our site</Typography>
                     </TimelineContent>
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         Second
                     </TimelineOppositeContent>
@@ -59,17 +59,17 @@ const HowItWorks = () => {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Profile Creation
                         </Typography>
-                        <Typography>Crate a cachy and impressive professional profile.</Typography>
+                        <Typography sx={{ color: '#0174BE' }}>Crate a cachy and impressive professional profile.</Typography>
                     </TimelineContent>
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         Third
                     </TimelineOppositeContent>
@@ -81,17 +81,17 @@ const HowItWorks = () => {
                         <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Biodata Entry
                         </Typography>
-                        <Typography>Add you biodata to match you partner.</Typography>
+                        <Typography sx={{ color: '#0174BE' }}>Add you biodata to match you partner.</Typography>
                     </TimelineContent>
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         Fourth
                     </TimelineOppositeContent>
@@ -103,17 +103,17 @@ const HowItWorks = () => {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Contact Options
                         </Typography>
-                        <Typography>Because this is the life you love!</Typography>
+                        <Typography sx={{ color: '#0174BE' }}>Because this is the life you love!</Typography>
                     </TimelineContent>
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         Highly Recommended
                     </TimelineOppositeContent>
@@ -125,17 +125,17 @@ const HowItWorks = () => {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Premium Membership
                         </Typography>
-                        <Typography>Get a premium membership to make youself unique.</Typography>
+                        <Typography sx={{ color: '#0174BE'}}>Get a premium membership to make youself unique.</Typography>
                     </TimelineContent>
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineOppositeContent
                         sx={{ m: 'auto 0' }}
-                        variant="body2"
-                        color="text.secondary"
+                        variant="body4"
+                        color="#0174BE"
                     >
                         Finally
                     </TimelineOppositeContent>
@@ -147,10 +147,10 @@ const HowItWorks = () => {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
-                        <Typography variant="h6" component="span">
+                        <Typography variant="h4" component="span" sx={{color: '#0C356A'}}>
                             Explore Us
                         </Typography>
-                        <Typography>Feel free to search and request you matche's</Typography>
+                        <Typography sx={{ color: '#0174BE' }}>Feel free to search and request you matche's</Typography>
                     </TimelineContent>
                 </TimelineItem>
             </Timeline>

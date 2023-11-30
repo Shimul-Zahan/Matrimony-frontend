@@ -11,6 +11,8 @@ import { RiDislikeLine } from "react-icons/ri";
 import { MyAuthContext } from '../Context/AuthContext';
 import './dashboard.css'
 import fetchAdmin from '../Hooks/fetchAdmin';
+import { FaDiagramSuccessor } from "react-icons/fa6";
+import { IoMdContacts } from "react-icons/io";
 
 const DashboardLayout = () => {
 
@@ -22,27 +24,24 @@ const DashboardLayout = () => {
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
-    // https://i.ibb.co/jZMLXhG/small.jpg
-//     
-// }
 
 
     return (
-        <div className='min-h-screen' style={{ backgroundImage: `url('https://i.ibb.co/jwtJNV2/purple-tulip-with-small-hearts-table.jpg')`, backgroundSize: 'cover' }}>
+        <div className='min-h-screen' style={{ backgroundImage: `url('https://i.ibb.co/vHHfXJX/beautiful-tulip-flowers-corner-white-background.jpg')`, backgroundSize: 'cover' }}>
             <div className='container mx-auto'>
                 <div className='flex justify-start flex-col md:flex-row'>
-                    <div className="flex w-full md:fixed md:min-h-screen lg:min-h-screen md:w-72 lg:w-96 flex-col justify-between border-e">
+                    <div className="flex w-full md:fixed md:min-h-screen lg:min-h-screen md:w-72 lg:w-96 flex-col justify-between">
                         <div className="px-4 py-6">
                             <span
-                                className="grid py-3 w-full text-start px-5 rounded-lg bg-gray-100 text-xl text-gray-600"
+                                className="grid py-3 w-full text-start px-5 rounded-lg text-xl text-gray-600"
                             >
-                                <span className='text-[#1976D2] font-bold text-2xl'>MEMORY</span>Metromony BD
+                                <span className='text-[#0C356A] font-bold text-2xl'>MEMORY</span>Metromony BD
                             </span>
                             {
                                 admin?.isAdmin ?
                                     <ul className="mt-6 space-y-4">
                                         <li>
-                                            <NavLink to='/dashboard/admin-dashboard' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/admin-dashboard' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <MdHome />
@@ -53,7 +52,7 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/manage-users' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/manage-users' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <MdManageAccounts />
@@ -64,7 +63,7 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/approved-premium' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/approved-premium' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <FcApproval />
@@ -75,30 +74,45 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/approve-contact-request' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/approve-contact-request' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
-                                                        <CiSquareQuestion />
+                                                        <IoMdContacts />
                                                     </span>
                                                     <h1 className='uppercase'>Approved Contact Request</h1>
                                                 </div>
                                             </NavLink>
                                         </li>
+                                        <span class="relative flex justify-center">
+                                            <div
+                                                class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
+                                            ></div>
+
+                                            <span class="relative z-10 bg-white px-6"></span>
+                                        </span>
 
                                         <li>
-                                            <NavLink to='/dashboard/success-story-admin' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/success-story-admin' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
-                                                        <FcApproval />
+                                                        <FaDiagramSuccessor />
                                                     </span>
                                                     <h1 className='uppercase'>Success Story</h1>
                                                 </div>
                                             </NavLink>
                                         </li>
 
-                                        <Link className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 ">
+                                        <NavLink to='/' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <MdManageAccounts />
+                                                </span>
+                                                <h1 className='uppercase'>Home</h1>
+                                            </div>
+                                        </NavLink>
+                                        <Link className="block rounded-lg px-4 py-2 text-lg font-medium text-[#FFC436] ">
                                             <button onClick={handleLogOut}
-                                                className='border-2 py-2 px-4 flex items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>
+                                                className='border-2 py-2 px-4 flex w-full items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>
                                                 <span className='text-2xl'>
                                                     <MdOutlineLogout />
                                                 </span>
@@ -107,10 +121,17 @@ const DashboardLayout = () => {
                                                 </h1>
                                             </button>
                                         </Link>
+                                        <span class="relative flex justify-center">
+                                            <div
+                                                class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
+                                            ></div>
+
+                                            <span class="relative z-10 bg-white px-6"></span>
+                                        </span>
                                     </ul> :
                                     <ul className="mt-6 space-y-4">
                                         <li>
-                                            <NavLink to='/dashboard/edit-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/edit-biodata' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <FaEdit />
@@ -121,7 +142,7 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/view-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/view-biodata' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <TbListDetails />
@@ -132,7 +153,7 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/my-contact-request' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/my-contact-request' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <CiSquareQuestion />
@@ -143,7 +164,7 @@ const DashboardLayout = () => {
                                         </li>
 
                                         <li>
-                                            <NavLink to='/dashboard/favourites-biodata' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/favourites-biodata' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
                                                         <RiDislikeLine />
@@ -152,19 +173,34 @@ const DashboardLayout = () => {
                                                 </div>
                                             </NavLink>
                                         </li>
+                                        <span class="relative flex justify-center">
+                                            <div
+                                                class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
+                                            ></div>
+
+                                            <span class="relative z-10 bg-white px-6"></span>
+                                        </span>
 
                                         <li>
-                                            <NavLink to='/dashboard/success-story' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
+                                            <NavLink to='/dashboard/success-story' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
                                                 <div className='flex justify-normal items-center gap-2'>
                                                     <span className='text-2xl'>
-                                                        <RiDislikeLine />
+                                                        <FaDiagramSuccessor />
                                                     </span>
                                                     <h1 className='uppercase'>Success Story</h1>
                                                 </div>
                                             </NavLink>
                                         </li>
+                                        <NavLink to='/' className="block rounded-lg px-4 py-2 text-lg font-medium text-[#0C356A] ">
+                                            <div className='flex justify-normal items-center gap-2'>
+                                                <span className='text-2xl'>
+                                                    <MdManageAccounts />
+                                                </span>
+                                                <h1 className='uppercase'>Home</h1>
+                                            </div>
+                                        </NavLink>
 
-                                        <Link className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 ">
+                                        <Link className="block rounded-lg px-4 py-2 text-lg font-medium text-[#FFC436] ">
                                             <button onClick={handleLogOut}
                                                 className='border-2 py-2 px-4 flex items-center gap-3 bg-gray-100 rounded-sm text-gray-800'>
                                                 <span className='text-2xl'>
@@ -175,20 +211,19 @@ const DashboardLayout = () => {
                                                 </h1>
                                             </button>
                                         </Link>
+                                        <span class="relative flex justify-center">
+                                            <div
+                                                class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
+                                            ></div>
+
+                                            <span class="relative z-10 bg-white px-6"></span>
+                                        </span>
                                     </ul>
                             }
                         </div>
 
                         <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 space-y-4">
-                            <NavLink to='/' className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-700">
-                                <div className='flex justify-normal items-center gap-2'>
-                                    <span className='text-2xl'>
-                                        <MdManageAccounts />
-                                    </span>
-                                    <h1 className='uppercase'>Home</h1>
-                                </div>
-                            </NavLink>
-                            <div className="md:flex items-center gap-2 hidden bg-gray-100 p-4 hover:bg-gray-50">
+                            <div className="md:flex items-center gap-2 hidden  p-4 hover:bg-gray-50">
                                 <img
                                     alt="Man"
                                     src={user?.photoURL}

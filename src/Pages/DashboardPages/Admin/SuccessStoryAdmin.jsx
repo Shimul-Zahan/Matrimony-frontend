@@ -25,9 +25,9 @@ const SuccessStoryAdmin = () => {
     <div>
       <TitleBar title={'ALL SUCCESS STORY'} />
       <div className="overflow-x-auto lg:px-10">
-        <table className="min-w-full bg-white text-base">
+        <table className="min-w-full  text-base">
           <thead className="">
-            <tr className='bg-gray-100 text-center'>
+            <tr className=' text-center'>
               <th className="whitespace-nowrap  px-4 py-2 font-bold text-gray-900">
                 Male Biodata ID
               </th>

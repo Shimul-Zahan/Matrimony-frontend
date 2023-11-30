@@ -22,9 +22,9 @@ const AllBiodatas = () => {
     const [page, setPage] = useState(0)
     const axiosSecureInstance = useAxiosSecure();
     const totalPage = Math.ceil((totalData / 5));
-    console.log(totalPage)
+    // console.log(totalPage)
     const countableBtn = [...Array(totalPage).keys()]
-    console.log(countableBtn)
+    // console.log(countableBtn)
 
     useEffect(() => {
         axiosSecureInstance.get("/count").then((res) => setTotalData(res.data.count))
@@ -165,17 +165,17 @@ const AllBiodatas = () => {
                                                 alignItems: 'center'
                                             }}
                                         >
-                                            <Card sx={{ maxWidth: 345, backgroundColor: '#DDF2FD' }}>
+                                            <Card sx={{ maxWidth: 345, backgroundColor: '#0C356A', color: '#FFC436' }}>
                                                 <CardMedia
                                                     sx={{ height: 240, width: 400 }}
                                                     image={user?.image}
                                                     title="green iguana"
                                                 />
                                                 <CardContent>
-                                                    <Typography gutterBottom variant="h6" component="div">
+                                                    <Typography gutterBottom variant="h5" component="div">
                                                         Biodata ID: {user?.biodataId}
                                                     </Typography>
-                                                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                                                    <Typography gutterBottom variant="body4" component="div" style={{ textTransform: 'capitalize' }}>
                                                         Occupation: {user?.occupation}
                                                     </Typography>
                                                     <Grid style={{
@@ -184,23 +184,23 @@ const AllBiodatas = () => {
                                                         alignItems: 'center',
                                                         textTransform: 'capitalize'
                                                     }}>
-                                                        <Typography gutterBottom variant="body6" component="div" >
+                                                        <Typography gutterBottom variant="body4" component="div" >
                                                             Biodata Type: {user?.biodataType}
                                                         </Typography>
-                                                        <Typography gutterBottom variant="body6" component="div">
+                                                        <Typography gutterBottom variant="body4" component="div">
                                                             Age: {user?.age}
                                                         </Typography>
                                                     </Grid>
-                                                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                                                    <Typography gutterBottom variant="body4" component="div" style={{ textTransform: 'capitalize' }}>
                                                         Permanent Division: {user?.permanentDivision}
                                                     </Typography>
-                                                    <Typography variant="body6" color="text.secondary">
+                                                    <Typography variant="body4" color="text.secondary">
 
                                                     </Typography>
                                                 </CardContent>
                                                 <CardActions>
                                                     <Link to={`/viewDetails/${user?._id}`}>
-                                                        <Button sx={{ backgroundColor: '#1976D2', color: '#fff', }} size="lg">View Profile</Button>
+                                                        <Button sx={{ backgroundColor: '#FFF0CE', color: '#0C356A', }} size="lg">View Profile</Button>
                                                     </Link>
                                                 </CardActions>
                                             </Card>

@@ -3,49 +3,49 @@ import logo from '../../assets/icons/group.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-[#164863] text-white">
+        <footer className="bg-[#0C356A] text-[FFC436]">
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-                <div className="flex justify-center text-white">
+                <div className="flex justify-center text-[#FFC436]">
                     
                 </div>
 
-                <p className="mx-auto mt-6 max-w-md text-lg text-center leading-relaxed text-white">
+                <p className="mx-auto mt-6 max-w-md text-lg text-center leading-relaxed text-[#FFC436]">
                     All rights reserved by @MOMENTS 2023
                 </p>
 
                 <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             About
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             Careers
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             History
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             Services
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             Projects
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-white transition hover:text-yellow-700/75" href="/">
+                        <a className="text-[#FFC436] transition hover:text-yellow-700/75" href="/">
                             Blog
                         </a>
                     </li>
@@ -57,7 +57,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-white transition hover:text-yellow-700/75"
+                            className="text-[#FFC436] transition hover:text-yellow-700/75"
                         >
                             <span className="sr-only">Facebook</span>
                             <svg
@@ -80,7 +80,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-white transition hover:text-yellow-700/75"
+                            className="text-[#FFC436] transition hover:text-yellow-700/75"
                         >
                             <span className="sr-only">Instagram</span>
                             <svg
@@ -103,7 +103,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-white transition hover:text-yellow-700/75"
+                            className="text-[#FFC436] transition hover:text-yellow-700/75"
                         >
                             <span className="sr-only">Twitter</span>
                             <svg
@@ -124,7 +124,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-white transition hover:text-yellow-700/75"
+                            className="text-[#FFC436] transition hover:text-yellow-700/75"
                         >
                             <span className="sr-only">GitHub</span>
                             <svg
@@ -147,7 +147,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-white transition hover:text-yellow-700/75"
+                            className="text-[#FFC436] transition hover:text-yellow-700/75"
                         >
                             <span className="sr-only">Dribbble</span>
                             <svg

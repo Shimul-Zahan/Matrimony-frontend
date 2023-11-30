@@ -124,16 +124,16 @@ const CheekoutPage = () => {
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
                         <div className="lg:col-span-2 lg:py-12">
-                            <p className="max-w-xl text-lg">
+                            <p className="max-w-xl text-lg text-[#000]">
                                 If You want to cheekout then you need to pay 500TK. If you paid the amound and if admin approved your request then you see your requested contact iformation in your dashboard. If admin want then he/she can cancel your request if your biodata information is fake. If interested then paid and cheekout this page.
                             </p>
 
                             <div className="mt-8">
-                                <a href="" className="text-2xl font-bold text-pink-600">
+                                <a href="" className="text-2xl font-bold text-[#0C356A]">
                                     Any more information contact
                                 </a>
 
-                                <address className="mt-2 not-italic">
+                                <address className="mt-2 not-italic text-[#0174BE]">
                                     admin_memory@gmail.com
                                 </address>
                             </div>
@@ -144,7 +144,7 @@ const CheekoutPage = () => {
                                 <div>
                                     <label className='mb-2'>Requested ID</label>
                                     <input
-                                        className="w-full rounded-lg border-2 border-black p-3 text-sm"
+                                        className="w-full rounded-lg border-2 border-[#0C356A] p-3 text-sm"
                                         placeholder="Requester biodata ID"
                                         value={id}
                                         type="number"
@@ -157,7 +157,7 @@ const CheekoutPage = () => {
                                     <div>
                                         <label className='mb-2'>Requester ID</label>
                                         <input
-                                            className="w-full rounded-lg border-2 border-black p-3 text-sm"
+                                            className="w-full rounded-lg border-2 border-[#0C356A] p-3 text-sm"
                                             placeholder="Your biodata ID"
                                             value={myID}
                                             type="number"
@@ -168,7 +168,7 @@ const CheekoutPage = () => {
                                     <div>
                                         <label className='mb-2'>Requester Email</label>
                                         <input
-                                            className="w-full rounded-lg border-2 border-black p-3 text-sm"
+                                            className="w-full rounded-lg border-2 border-[#0C356A] p-3 text-sm"
                                             placeholder="Email"
                                             value={user?.email}
                                             type="email"
@@ -183,9 +183,9 @@ const CheekoutPage = () => {
                                             style: {
                                                 base: {
                                                     fontSize: '16px',
-                                                    color: '#424770',
+                                                    color: '#0C356A',
                                                     '::placeholder': {
-                                                        color: '#aab7c4',
+                                                        color: '#0C356A',
                                                     },
                                                 },
                                                 invalid: {
@@ -199,7 +199,7 @@ const CheekoutPage = () => {
                                 <div className="mt-4">
                                     <button disabled={!clientSecret}
                                         type="submit"
-                                        className="inline-block w-full rounded-lg bg-indigo-600 px-5 py-3 font-medium text-white sm:w-auto"
+                                        className="inline-block w-full rounded-lg bg-[#0C356A] px-5 py-3 font-medium text-white sm:w-auto"
                                     >
                                         Send Enquiry
                                     </button>

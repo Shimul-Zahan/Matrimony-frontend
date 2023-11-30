@@ -85,9 +85,9 @@ const ManageUsers = () => {
         <div>
             <TitleBar title={'MANAGE USERS HERE'} />
             <div className="overflow-x-auto lg:px-10">
-                <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-base">
+                <table className="min-w-full divide-y-2 mb-20 divide-gray-200 text-base">
                     <thead className="ltr:text-left rtl:text-right">
-                        <tr className='bg-gray-100'>
+                        <tr className=''>
                             <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
                                 User Name
                             </th>

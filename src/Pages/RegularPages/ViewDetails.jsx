@@ -60,7 +60,7 @@ const ViewDetails = () => {
                     <div className="rounded-lg">
                         <div className="grid px-4 lg:gap-8 lg:grid-cols-2 lg:items-start">
                             <div className="lg:col-start-2">
-                                <h3 className="text-2xl mb-4 font-bold tracki sm:text-3xl dark:text-gray-50">{detailsData?.name}</h3>
+                                <h3 className="text-2xl mb-4 font-bold text-[#0C356A] sm:text-3xl dark:text-gray-50">{detailsData?.name}</h3>
                                 <div className="flow-root">
                                     <dl className="-my-3 divide-y divide-gray-100 text-sm capitalize">
                                         <div
@@ -183,7 +183,7 @@ const ViewDetails = () => {
                                         className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
                                     ></div>
 
-                                    <span className="relative z-10 bg-white px-6">Contact Information</span>
+                                    <span className="relative z-10 bg-[white] px-6">Contact Information</span>
                                 </span>
                                 {
                                     premiumMember || user?.email === detailsData?.userEmail ?
@@ -205,14 +205,14 @@ const ViewDetails = () => {
                                             </dl>
                                         </div> : 
                                         <Link to={`/cheekout/${detailsData?.biodataId}`}>
-                                            <button className='bg-indigo-700 flex justify-center items-center gap-3 w-full mt-5 py-2 text-white text-lg rounded-sm'>
+                                            <button className='bg-[#0C356A] flex justify-center items-center gap-3 w-full mt-5 py-2 text-white text-lg rounded-sm'>
                                                 <span className='text-yellow-500'><FaLock /></span>Request Contact Information</button>
                                         </Link>
                                 }
                                 {
                                     user?.email !== detailsData?.userEmail &&
                                     <div>
-                                        <button onClick={addToFavourite} className='bg-indigo-700 flex justify-center items-center gap-2 w-full mt-5 py-2 text-white text-lg rounded-sm'>
+                                            <button onClick={addToFavourite} className='bg-[#0C356A] flex justify-center items-center gap-2 w-full mt-5 py-2 text-white text-lg rounded-sm'>
                                             <span className=''>
                                                 <IoAddCircleOutline className='text-2xl' />
                                             </span>Add to Favourite</button>
@@ -222,7 +222,7 @@ const ViewDetails = () => {
                         </div>
                     </div>
                     <div className="mt-2 lg:mt-0">
-                        <h1 className="text-2xl lg:text-end font-bold text-gray-900 sm:text-3xl">
+                        <h1 className="text-2xl lg:text-end font-bold text-[#0C356A] sm:text-3xl">
                             Recommended for you
                         </h1>
                         <section>

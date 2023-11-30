@@ -20,7 +20,7 @@ const PremiumMember = () => {
 
     return (
         <Box sx={{ width: '100%', mt: 4 }}>
-            <TitleBar title={'Premium Section'} subTitle={'Here Our Some Premium Members'} />
+            <TitleBar className='text-[#FFC436]' title={'Premium Section'} subTitle={'Here Our Some Premium Members'} />
             <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {
                     premiumAccount?.slice(0, 6).map((user, index) => 
@@ -31,17 +31,17 @@ const PremiumMember = () => {
                                 alignItems: 'center'
                             }}
                         >
-                            <Card sx={{ maxWidth: 345 }}>
+                            <Card sx={{ maxWidth: 345, backgroundColor: '#0C356A', color: '#FFC436' }}>
                                 <CardMedia
                                     sx={{ height: 240, width: 400 }}
                                     image={user?.image}
                                     title="green iguana"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h6" component="div">
+                                    <Typography gutterBottom variant="h5" component="div">
                                         Biodata ID: {user?.biodataId}
                                     </Typography>
-                                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                                    <Typography gutterBottom variant="body3" component="div" style={{ textTransform: 'capitalize' }}>
                                         Occupation: {user?.occupation}
                                     </Typography>
                                     <Grid style={{
@@ -50,23 +50,23 @@ const PremiumMember = () => {
                                         alignItems: 'center',
                                         textTransform: 'capitalize'
                                     }}>
-                                        <Typography gutterBottom variant="body6" component="div" >
+                                        <Typography gutterBottom variant="body3" component="div" >
                                             Biodata Type: {user?.biodataType}
                                         </Typography>
-                                        <Typography gutterBottom variant="body6" component="div">
+                                        <Typography gutterBottom variant="body3" component="div">
                                             Age: {user?.age}
                                         </Typography>
                                     </Grid>
-                                    <Typography gutterBottom variant="body6" component="div" style={{ textTransform: 'capitalize' }}>
+                                    <Typography gutterBottom variant="body3" component="div" style={{ textTransform: 'capitalize' }}>
                                         Permanent Division: {user?.permanentDivision}
                                     </Typography>
-                                    <Typography variant="body6" color="text.secondary">
+                                    <Typography variant="body3" color="text.secondary">
                             
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Link to={`/viewDetails/${user?._id}`}>
-                                        <Button sx={{ backgroundColor: '#1976D2', color: '#000' }} size="lg">View Profile</Button>
+                                        <Button sx={{ backgroundColor: '#FFF0CE', color: '#000' }} size="lg">View Profile</Button>
                                     </Link>
                                 </CardActions>
                             </Card>

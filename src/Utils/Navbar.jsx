@@ -17,6 +17,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './navbar.css'
 import { MyAuthContext } from '../Context/AuthContext';
 import fetchAdmin from '../Hooks/fetchAdmin';
+import logo from '../assets/logo/logo.png'
 
 
 const Navbar = () => {
@@ -49,10 +50,10 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar position="fixed" sx={{ fontFamily: 'cursive', backgroundColor: '#164863'}} >
+            <AppBar position="fixed" sx={{ fontFamily: 'cursive', backgroundColor: '#0C356A'}} >
                 <Container sx={{ padding: 1 }} maxWidth="xl">
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <img src={logo} alt="" className='w-12 h-12 hidden lg:block' />
                         <Typography
                             variant="h6"
                             noWrap
@@ -64,11 +65,11 @@ const Navbar = () => {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'inherit',
                                 textDecoration: 'none',
+                                color: '#FFC436'
                             }}
                         >
-                            LOGO
+                            MEMORY
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,7 +79,7 @@ const Navbar = () => {
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 onClick={handleOpenNavMenu}
-                                color="inherit"
+                                color="#FFC436"
                             >
                                 <MenuIcon />
                             </IconButton>
@@ -100,29 +101,28 @@ const Navbar = () => {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                <NavLink to='/'>
-                                    <MenuItem sx={{ fontFamily: 'cursive' }}>HOME</MenuItem>
+                                <NavLink to='/' sx={{ color: '#FFC436'}}>
+                                    <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>HOME</MenuItem>
                                 </NavLink>
                                 <NavLink to='/biodata'>
-                                    <MenuItem sx={{ fontFamily: 'cursive' }}>BIODATAS</MenuItem>
+                                    <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>BIODATAS</MenuItem>
                                 </NavLink>
                                 <NavLink to='/about-us'>
-                                    <MenuItem sx={{ fontFamily: 'cursive' }}>ABOUT US</MenuItem>
+                                    <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>ABOUT US</MenuItem>
                                 </NavLink>
                                 <NavLink to='/contact-us'>
-                                    <MenuItem sx={{ fontFamily: 'cursive' }}>CONTACT</MenuItem>
+                                    <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>CONTACT</MenuItem>
                                 </NavLink>
                                 {
                                     user && admin?.isAdmin ? <NavLink to='/dashboard/admin-dashboard'>
-                                        <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                        <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>DASHBOARD</MenuItem>
                                     </NavLink> :
                                         user && user && <NavLink to='/dashboard/edit-biodata'>
-                                            <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                            <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>DASHBOARD</MenuItem>
                                         </NavLink>
                                 }
                             </Menu>
                         </Box>
-                        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                         <Typography
                             variant="h5"
                             noWrap
@@ -135,31 +135,31 @@ const Navbar = () => {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'inherit',
+                                color: '#FFC436',
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            MEMORY
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             <NavLink to='/'>
-                                <MenuItem sx={{ fontFamily: 'cursive' }}>HOME</MenuItem>
+                                <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>HOME</MenuItem>
                             </NavLink>
                             <NavLink to='/biodata'>
-                                <MenuItem sx={{ fontFamily: 'cursive' }}>BIODATAS</MenuItem>
+                                <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>BIODATAS</MenuItem>
                             </NavLink>
                             <NavLink to='/about-us'>
-                                <MenuItem sx={{ fontFamily: 'cursive' }}>ABOUT US</MenuItem>
+                                <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>ABOUT US</MenuItem>
                             </NavLink>
                             <NavLink to='/contact-us'>
-                                <MenuItem sx={{ fontFamily: 'cursive' }}>CONTACT</MenuItem>
+                                <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>CONTACT</MenuItem>
                             </NavLink>
                             {
                                 user && admin?.isAdmin ? <NavLink to='/dashboard/admin-dashboard'>
-                                    <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                    <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>DASHBOARD</MenuItem>
                                 </NavLink> :
                                     user && user && <NavLink to='/dashboard/edit-biodata'>
-                                        <MenuItem sx={{ fontFamily: 'cursive' }}>DASHBOARD</MenuItem>
+                                        <MenuItem sx={{ fontFamily: 'cursive', color: '#FFC436' }}>DASHBOARD</MenuItem>
                                     </NavLink>
                             }
                         </Box>
@@ -170,10 +170,10 @@ const Navbar = () => {
                                     {
                                         user ? 
                                             <Link onClick={handleSignOut}>
-                                                <Button sx={{ fontFamily: 'cursive' }} variant="contained" color="success">LOG OUT</Button>
+                                                <Button sx={{ fontFamily: 'cursive', backgroundColor: '#FFC436' }} variant="contained" color="success">LOG OUT</Button>
                                             </Link> :
                                             <Link to='signin'>
-                                                <Button sx={{ fontFamily: 'cursive' }} variant="contained" color="success">SIGN IN</Button>
+                                                <Button sx={{ fontFamily: 'cursive', backgroundColor: '#FFC436' }} variant="contained" color="success">SIGN IN</Button>
                                             </Link>
                                     }
                                 </Tooltip>

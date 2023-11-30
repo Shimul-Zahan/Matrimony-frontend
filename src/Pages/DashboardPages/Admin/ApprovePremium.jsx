@@ -33,9 +33,9 @@ const ApprovePremium = () => {
       <TitleBar title={'APPROVE PREMIUM REQUEST'} />
       <div className='pb-10'>
         <div className="overflow-x-auto lg:px-10">
-          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-lg">
+          <table className="min-w-full divide-y-2 divide-gray-200 text-lg">
             <thead className="ltr:text-left rtl:text-right">
-              <tr className='bg-gray-100'>
+              <tr className=''>
                 <th className="whitespace-nowrap text-start px-4 py-2 font-bold text-gray-900">
                   Biodata ID
                 </th>

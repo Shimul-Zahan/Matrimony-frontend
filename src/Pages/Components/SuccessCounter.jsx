@@ -17,14 +17,14 @@ const SuccessCounter = () => {
     return (
         <div className='bg-black bg-blend-overlay bg-opacity-60 flex flex-col justify-center items-center bg-fixed' style={{backgroundImage: `url('${bg}')`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
             <div className='mt-20'>
-                <TitleBar className='text-white' title={'SUCCESS COUNTER'} subTitle={'Here are Some Statistics of Our Site'} />
+                <TitleBar className='text-[#FFC436]' title={'SUCCESS COUNTER'} subTitle={'Here are Some Statistics of Our Site'} />
             </div>
             <div className='flex justify-center items-center '>
                 <div className='shadow-sm font-mono grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-10 min-h-[500px]'>
                     <div>
                         <CountUp start={0} end={data?.female}>
                             {({ countUpRef }) => (
-                                <div className='py-4 px-8 text-4xl lg:text-7xl text-white font-bold flex flex-col justify-center items-center gap-5'>
+                                <div className='py-4 px-8 text-4xl lg:text-7xl text-[#FFC436] font-bold flex flex-col justify-center items-center gap-5'>
                                     <div>
                                         <img src={img2} alt="" className='h-32 w-32 rounded-sm' />
                                     </div>
@@ -37,7 +37,7 @@ const SuccessCounter = () => {
                     <div>
                         <CountUp start={0} end={data?.users}>
                             {({ countUpRef }) => (
-                                <div className='py-4 px-8 text-4xl lg:text-7xl text-white font-bold flex flex-col justify-center items-center gap-5'>
+                                <div className='py-4 px-8 text-4xl lg:text-7xl text-[#FFC436] font-bold flex flex-col justify-center items-center gap-5'>
                                     <div>
                                         <img src={img1} alt="" className='h-32 w-32 rounded-sm' />
                                     </div>
@@ -50,7 +50,7 @@ const SuccessCounter = () => {
                     <div>
                         <CountUp start={0} end={data?.male}>
                             {({ countUpRef }) => (
-                                <div className='py-4 px-8 text-4xl lg:text-7xl text-white font-bold flex flex-col justify-center items-center gap-5'>
+                                <div className='py-4 px-8 text-4xl lg:text-7xl text-[#FFC436] font-bold flex flex-col justify-center items-center gap-5'>
                                     <div>
                                         <img src={img3} alt="" className='h-32 w-32 rounded-sm' />
                                     </div>
@@ -63,7 +63,7 @@ const SuccessCounter = () => {
                     <div>
                         <CountUp start={0} end={ data?.totalMarriage}>
                             {({ countUpRef }) => (
-                                <div className='py-4 px-8 text-4xl lg:text-7xl text-white font-bold flex flex-col justify-center items-center gap-5'>
+                                <div className='py-4 px-8 text-4xl lg:text-7xl text-[#FFC436] font-bold flex flex-col justify-center items-center gap-5'>
                                     <div>
                                         <img src={img4} alt="" className='h-32 w-32 rounded-sm' />
                                     </div>
