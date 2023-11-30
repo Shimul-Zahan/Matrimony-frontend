@@ -22,7 +22,7 @@ const ManageUsers = () => {
         return <Loading />
     }
 
-    const handleUserRole = async (id) => {
+    const handleUserRole = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You want to be a premium member!",
@@ -36,12 +36,12 @@ const ManageUsers = () => {
                 axiosSecureInstance.patch(`/manage-users-role/${id}`)
                     .then(res => {
                         if (res.data.modifiedCount) {
+                            refetch()
                             Swal.fire({
                                 title: "Good job!",
                                 text: "You get the admin role to the user!",
                                 icon: "success"
                             });
-                            refetch()
                         }
                     })
             }
@@ -63,12 +63,12 @@ const ManageUsers = () => {
                 axiosSecureInstance.patch(`/manage-users-premium/${email}`)
                     .then(res => {
                         if (res.data.modifiedCount) {
+                            refetch()
                             Swal.fire({
                                 title: "Good job!",
                                 text: "You set is user premium!",
                                 icon: "success"
                             });
-                            refetch()
                         }
                     })
             }

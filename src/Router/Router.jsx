@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'cheekout/:id',
-                element: <Payment />,
+                element: <PrivateRoute><Payment /></PrivateRoute>,
             },
             {
                 path: '/about-us',

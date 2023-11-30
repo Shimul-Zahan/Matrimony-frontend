@@ -8,11 +8,14 @@ import { MyAuthContext } from '../../Context/AuthContext';
 import usePublicAxios from '../../Hooks/usePublicAxios';
 import Swal from 'sweetalert2';
 import Loading from '../Components/Loading';
+import fetchAdmin from '../../Hooks/fetchAdmin';
 
 const ViewDetails = () => {
 
     const pages = [...Array(5).keys()];
     const { data, isLoading } = useAllBiodatas();
+    const { admin } = fetchAdmin();
+
     const [totalPage, setTotalPage] = useState(pages);
     if (isLoading) {
         return <Loading />
@@ -187,7 +190,7 @@ const ViewDetails = () => {
                                     <span className="relative z-10 bg-[white] px-6">Contact Information</span>
                                 </span>
                                 {
-                                    premiumMember || user?.email === detailsData?.userEmail ?
+                                    premiumMember || user?.email === detailsData?.userEmail || admin.isAdmin ?
                                         <div className="flow-root mt-5">
                                             <dl className="-my-3 divide-y divide-gray-100 text-lg">
                                                 <div
