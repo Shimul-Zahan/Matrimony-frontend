@@ -8,7 +8,7 @@ const useStatistics = () => {
     const axioPublicGetInstance = useGetAxios();
 
     const { data, refetch, isLoading } = useQuery({
-        queryKey: ['statistics'],
+        queryKey: ['statistics', user?.email],
         queryFn: async () => {
             const res = await axioPublicGetInstance.get('/statistics')
             return await res.data

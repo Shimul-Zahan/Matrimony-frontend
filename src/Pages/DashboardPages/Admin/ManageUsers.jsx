@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { GrUserAdmin } from "react-icons/gr";
 import { FaUserCircle } from "react-icons/fa";
 import { MdWorkspacePremium } from "react-icons/md";
+import Loading from '../../Components/Loading';
 
 const ManageUsers = () => {
 
@@ -15,10 +16,10 @@ const ManageUsers = () => {
 
     useEffect(() => {
         setDisplayData(data);
-    }, [isLoading])
+    }, [isLoading, refetch()])
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <Loading />
     }
 
     const handleUserRole = async (id) => {
@@ -37,7 +38,7 @@ const ManageUsers = () => {
                         if (res.data.modifiedCount) {
                             Swal.fire({
                                 title: "Good job!",
-                                text: "You clicked the button!",
+                                text: "You get the admin role to the user!",
                                 icon: "success"
                             });
                             refetch()
@@ -64,7 +65,7 @@ const ManageUsers = () => {
                         if (res.data.modifiedCount) {
                             Swal.fire({
                                 title: "Good job!",
-                                text: "You clicked the button!",
+                                text: "You set is user premium!",
                                 icon: "success"
                             });
                             refetch()

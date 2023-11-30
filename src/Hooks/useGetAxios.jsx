@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axioPublicGetInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://serversite-kappa.vercel.app',
     withCredentials: true,
 });
 
