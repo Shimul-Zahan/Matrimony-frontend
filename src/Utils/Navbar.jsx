@@ -23,7 +23,7 @@ import logo from '../assets/logo/logo.png'
 const Navbar = () => {
 
     const { user, logOut } = React.useContext(MyAuthContext);
-    const {admin}=fetchAdmin()
+    const { admin } = fetchAdmin()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 

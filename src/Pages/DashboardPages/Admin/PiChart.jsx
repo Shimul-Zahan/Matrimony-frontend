@@ -27,7 +27,7 @@ const PiChart = () => {
         { name: 'Male Biodata', value: parseInt(data?.male) },
         { name: 'Female Biodata', value: parseInt(data?.female) },
         { name: 'Premium Member', value: parseInt(data?.premiumMember) },
-        { name: 'Total Revenue', value: parseInt(data?.totalTaka / 1000) },
+        { name: 'Total Revenue', value: parseInt(data?.totalTaka) },
     ];
 
     return (

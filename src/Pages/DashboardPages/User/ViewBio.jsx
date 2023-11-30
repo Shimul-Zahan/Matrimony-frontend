@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 import TitleBar from '../../../Utils/TitleBar'
 import useBioDetailsDash from '../../../Hooks/useBioDetailsDash'
 import useAxiosSecure from '../../../Hooks/useAxiosSecure'
+import Loading from '../../Components/Loading'
 
 const ViewBio = () => {
 
@@ -17,7 +18,7 @@ const ViewBio = () => {
     }
 
     if (isLoading) {
-        return <div>Loading....</div>
+        return <Loading />
     }
 
     const requestPremium = () => {
@@ -52,7 +53,7 @@ const ViewBio = () => {
 
             {/* profile part */}
             <div className="lg:px-16 py-1">
-                <div className="lg:px-8 pb-5 bg-white shadow mt-24">
+                <div className="lg:px-8 pb-5 shadow mt-24">
                     <div className="grid grid-cols-1 pb-10">
                         <div className="relative">
                             <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
