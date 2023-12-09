@@ -6,7 +6,7 @@ On the other hand, let's come to the admin dashboard where an admin can add, del
 Besides, contact information request, premium request except left can be deleted.
 I have given privacy to all funds of this site. Here you will find two different dashboards.
 
-Use Technologics
+# Use Technologics
 .Tailwind CSS .Javascript .React Js .Node Js .Express Js .MongoDB .Stripe .Firebase .Jwt .Mui .Axios .Tanstack Query
 
 # Web Tools
