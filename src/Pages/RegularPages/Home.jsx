@@ -10,19 +10,19 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      <div data-aos="fade-right">
         <Carousel />
       </div>
       <div className='container mx-auto my-20'>
         <PremiumMember />
       </div>
-      <div>
+      <div data-aos="fade-right">
         <HowItWorks />
       </div>
-      <div>
+      <div data-aos="fade-right">
         <SuccessCounter />
       </div>
-      <div>
+      <div data-aos="fade-right">
         <SuccessStory />
       </div>
     </div>

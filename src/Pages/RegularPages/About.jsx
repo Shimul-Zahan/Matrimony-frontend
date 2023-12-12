@@ -9,7 +9,7 @@ import TitleBar from '../../Utils/TitleBar';
 const About = () => {
   return (
     <div>
-      <div className='bg-black bg-blend-overlay bg-opacity-70 lg:h-[800px] my-16 bg-fixed lg:mb-40' style={{ backgroundImage: `url('${bg}')`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+      <div data-aos="fade-right" className='bg-black bg-blend-overlay bg-opacity-70 lg:h-[800px] my-16 bg-fixed lg:mb-40' style={{ backgroundImage: `url('${bg}')`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
         <div className='flex flex-col justify-between items-center lg:flex-row h-full text-white max-w-7xl mx-auto gap-5 relative'>
           <h1 className='text-2xl text-center text-[#FFC436] lg:text-start lg:text-7xl font-bold mt-20 lg:mt-0'>Discover <br />Your Forever <br />Connection</h1>
           <div className=' w-full p-2 h-[300px] lg:w-[550px] lg:h-[400px]'>
@@ -70,7 +70,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className='py-20 container mx-auto'>
+      <div data-aos="fade-right" className='py-20 container mx-auto'>
         <TitleBar title={'WHY CHOOSE US'} />
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-20 lg:20  text-center lg:text-start'>
           <div className="flex flex-col justify-center items-center gap-5 lg:flex-row lg:justify-start md:border-b-2 p-4">
@@ -119,7 +119,7 @@ const About = () => {
       </div>
       <div>
         <TitleBar title={'OUR ACHIVEMENTS'} />
-        <div className='flex justify-center items-center' data-aos="fade-up-right">
+        <div data-aos="fade-right" className='flex justify-center items-center' data-aos="fade-up-right">
           <div className='grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-24'>
             <div className='flex flex-col justify-center items-center mb-20'>
               <img src="https://img.freepik.com/premium-photo/indian-wedding-miniature_38694-277.jpg?w=740" className='h-72 w-72 rounded-full' />

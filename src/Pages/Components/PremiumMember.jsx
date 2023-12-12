@@ -7,12 +7,19 @@ import TitleBar from '../../Utils/TitleBar';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import useAllBiodatas from '../../Hooks/useAllBiodatas';
+// import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 
 const PremiumMember = () => {
 
     const { data, refetch, isLoading } = useAllBiodatas();
     console.log(data)
+
+    Aos.init({
+        duration: "500"
+    });
 
     if (isLoading) {
         return <Loading />
@@ -22,11 +29,11 @@ const PremiumMember = () => {
 
 
     return (
-        <Box sx={{ width: '100%', mt: 4 }}>
+        <Box data-aos="fade-right" sx={{ width: '100%', mt: 4 }}>
             <TitleBar className='text-[#FFC436]' title={'Premium Section'} subTitle={'Here Our Some Premium Members'} />
             <Grid container rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {
-                    premiumAccount?.map((user, index) => 
+                    premiumAccount?.map((user, index) =>
                         <Grid key={index} item xs={12} sm={6} md={4} lg={3}
                             style={{
                                 display: 'flex',
@@ -64,7 +71,7 @@ const PremiumMember = () => {
                                         Permanent Division: {user?.permanentDivision}
                                     </Typography>
                                     <Typography variant="body3" color="text.secondary">
-                            
+
                                     </Typography>
                                 </CardContent>
                                 <CardActions>

@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import icon from '../../assets/icons/group.png'
 import TitleBar from '../../Utils/TitleBar'
+import Swal from 'sweetalert2';
 
 const Contact = () => {
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_7ay2tdk', 'template_z5dxop8', form.current, '8R2AlonC3RdZ-e1uD')
+            .then((result) => {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Message sent!",
+                    icon: "success"
+                });
+                e.target.reset();
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <div className='mt-16'>
             <section class="bg-gray-100 lg:mb-20">
-                <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                <div data-aos="fade-right" class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                     <TitleBar class="mt-20" title={'CONTACT WITH US'} />
                     <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
                         <div class="lg:col-span-2 lg:py-12">
@@ -28,14 +49,14 @@ const Contact = () => {
                         </div>
 
                         <div class="rounded-lg bg-[white] p-8 shadow-lg lg:col-span-3 lg:p-12">
-                            <form action="" class="space-y-4">
+                            <form ref={form} onSubmit={sendEmail} class="space-y-4">
                                 <div>
                                     <label class="sr-only" for="name">Name</label>
                                     <input
-                                        class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                        class="w-full rounded-lg border-[#0C356A] border-2 p-3 text-sm"
                                         placeholder="Name"
                                         type="text"
-                                        id="name"
+                                        name="user_name"
                                     />
                                 </div>
 
@@ -46,7 +67,7 @@ const Contact = () => {
                                             class="w-full rounded-lg border-[#0C356A] border-2 p-3 text-sm"
                                             placeholder="Email address"
                                             type="email"
-                                            id="email"
+                                            name="user_email"
                                         />
                                     </div>
 
@@ -125,6 +146,7 @@ const Contact = () => {
                                         placeholder="Your text"
                                         rows="8"
                                         id="message"
+                                        name="message"
                                     ></textarea>
                                 </div>
 
@@ -142,12 +164,12 @@ const Contact = () => {
                 </div>
             </section>
 
-            <div className='my-10 flex flex-col justify-center items-center relative'>
+            <div data-aos="fade-right" className='my-10 flex flex-col justify-center items-center relative'>
                 <hr className='w-3/5 bg-[#0C356A] h-[3px]' />
                 <h1 className='text-5xl font-bold text-center absolute -top-7 text-[#FFC436] bg-white px-4'>Stay With Us</h1>
             </div>
 
-            <div className='flex justify-center items-center container mx-auto mt-20'>
+            <div data-aos="fade-right" className='flex justify-center items-center container mx-auto mt-20'>
                 <div className='container mx-auto mb-20 grid grid-cols-1 gap-10 lg:grid-cols-3 '>
                     <div className='space-y-2 flex flex-col justify-center items-center lg:justify-start lg:items-start'>
                         <h1 className='text-2xl font-bold text-[#0C356A]'>Quick Links</h1>
